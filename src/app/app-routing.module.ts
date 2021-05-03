@@ -22,6 +22,8 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent,},
       { path: 'challenge-list', component: ChallengeListComponent,},  
       { path: 'challenge-edit/:id', component: ChallengeEditComponent,},
+      { path: 'challenge-edit', component: ChallengeEditComponent,},
+      { path: '**', redirectTo: 'dashboard', pathMatch: 'full' },
     ]
   },
   { path: '**', redirectTo: 'login', pathMatch: 'full' },

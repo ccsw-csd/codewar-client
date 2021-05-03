@@ -18,13 +18,16 @@ export class ChallengeEditComponent implements OnInit {
   ngOnInit(): void {
 
     this.route.params.subscribe(params => {
-      let id : number = +params['id']; 
 
-      if (id != null) {
-        this.challengeService.get(id).subscribe((data) => {
-          this.challenge = data;
-        });
-      }      
+      if (params != null && params['id'] != null) {
+        let id : number = +params['id']; 
+          
+        if (id != null) {
+          this.challengeService.get(id).subscribe((data) => {
+            this.challenge = data;
+          });
+        }      
+      }
    });
    
 

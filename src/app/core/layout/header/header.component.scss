@@ -25,6 +25,15 @@
   }
 }
 
+.feedback-button {
+  width: 50px;
+  min-width: 50px; 
+  mat-icon {
+    color: white;
+  }
+}
+
+
 button {
   background-color: transparent;
 }

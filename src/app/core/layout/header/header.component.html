@@ -11,6 +11,12 @@
   </mat-toolbar-row>
 
   <mat-toolbar-row class="header-submenu">
+    <button mat-flat-button class="feedback-button" [matTooltip]="'Send feedback'" >
+      <a href="mailto:adcsd.internal.support@capgemini.com?subject=[Codewar] Consulta / Feedback">
+        <mat-icon>feedback</mat-icon>
+      </a>
+    </button>
+
     <mat-menu #menu="matMenu" xPosition="before" yPosition="below">
       <button mat-menu-item>
         <mat-icon>edit</mat-icon>

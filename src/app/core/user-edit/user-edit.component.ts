@@ -1,7 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AuthService } from '../services/auth.service';
 import { SnackbarService } from '../services/snackbar.service';
 import { UserService } from '../services/user.service';
@@ -19,12 +17,10 @@ export class UserEditComponent implements OnInit {
   
 
   constructor(
-    private dialogRef: MatDialogRef<UserEditComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private authService: AuthService,
     private userService: UserService,
     private snackbarService: SnackbarService,
-    private router: Router,
   ) {
 
     this.user = data.user;
@@ -34,7 +30,7 @@ export class UserEditComponent implements OnInit {
         this.user.username = username;
 
       this.user.dateCreation = new Date();
-      this.user.mail = this.user.username+"@capgemini.com";
+      this.user.mail = this.user.mail;
     }
    }
 

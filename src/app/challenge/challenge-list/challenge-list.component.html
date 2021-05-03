@@ -5,16 +5,16 @@
         <h1>Mis retos creados</h1>
       </div>
       <div class="float-left">
-        <button primary mat-button routerLink="/reto">Crear reto</button>
+        <button primary mat-button routerLink="/challenge-edit">Crear reto</button>
       </div>
     </div>
 
     <div class="challengeList">
       <div class="filter">
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="standard">
           <mat-label>Filtrar</mat-label>
           <input matInput name="filter" [(ngModel)]="filter" matInput placeholder="Filtrar" />
-          <span matPrefix><mat-icon class="icon" matSuffix>search</mat-icon>&nbsp;</span>
+          <span class="icono-filter" matPrefix><mat-icon class="icon" matSuffix>search</mat-icon>&nbsp;</span>
           
         </mat-form-field>
       </div>
