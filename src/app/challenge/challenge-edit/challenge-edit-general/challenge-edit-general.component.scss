@@ -1,0 +1,46 @@
+@import './src/assets/scss/master';
+
+.tab-container {
+    padding: 15px 0px 15px 0px;
+    height: calc(100vh - 240px);
+    overflow: auto;
+
+}
+
+.row-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.name {
+    padding-top: 10px;
+    width: 600px;
+}
+
+.tries-checkbox {
+    width: 175px;
+    padding: 20px 0px 0px 20px;
+}
+
+.chipChallenge-list {
+    flex: 1;
+}
+
+.selector {
+    flex: 1;
+    height: 2.5em;
+    border-width: 0px;
+    background-color: inherit;
+    &:hover {
+      cursor: pointer;
+    }
+}
+
+.selector:focus {
+    outline: 0px;
+}
+
+mat-chip {
+    margin: 0px !important;
+}
+

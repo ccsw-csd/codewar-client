@@ -1,0 +1,38 @@
+<mat-toolbar class="container">
+
+  <mat-toolbar-row class="header-menu">
+    <button mat-icon-button (click)="toggleSideNav()" mat-button>
+      <i class="material-icons header-icon">menu</i>
+    </button>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row routerLink="/dashboard">
+    <img height="30px" src="assets/images/codewar-negative.png" alt="Codewar" />
+  </mat-toolbar-row>
+
+  <mat-toolbar-row class="header-submenu">
+    <mat-menu #menu="matMenu" xPosition="before" yPosition="below">
+      <button mat-menu-item>
+        <mat-icon>edit</mat-icon>
+        <span>Edición de perfil</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>bar_chart</mat-icon>
+        <span>Estadísticas</span>
+      </button>
+      <mat-divider class="divider">
+      </mat-divider>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>input</mat-icon>
+        <span>Cerrar sesión</span>
+      </button>
+    </mat-menu>
+
+    <button mat-flat-button [matMenuTriggerFor]="menu" class="menu-button">
+      <i class="material-icons header-icon">account_circle</i>
+      <a> {{ getName() }} </a>
+      <mat-icon>arrow_drop_down</mat-icon>
+    </button>
+  </mat-toolbar-row>
+
+</mat-toolbar>

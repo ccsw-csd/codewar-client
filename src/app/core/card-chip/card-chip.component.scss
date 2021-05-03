@@ -1,0 +1,38 @@
+@import './src/assets/scss/master';
+
+$icon-size: 14px;
+
+.chip {
+  display: flex;
+  width: fit-content;
+  border-radius: 100px;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 4px;
+  margin: 3px 10px 3px 0px;
+  flex: 0 0 auto;
+
+  mat-icon {
+    width: $icon-size;
+    color: #707070;
+    background-color: #e5e5e5;
+    border-radius: 100px;
+    font-size: $icon-size;
+    padding: 4px;
+    text-align: center;
+  }
+
+  span {
+    padding: 4px 4px 4px 6px;
+    flex: 1;
+    font-size: $icon-size;
+  }
+}
+
+.filled {
+  background-color: #f8f8f8;
+}
+
+.outlined {
+  border: 1px solid $border-color;
+}

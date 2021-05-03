@@ -1,0 +1,30 @@
+@import './src/assets/scss/master';
+
+.filter {
+    width: 60%;
+
+    mat-form-field {
+        width: 100%;
+    }
+}
+
+.challengeList {
+    margin-top: 25px;
+    height: calc(100vh - 200px) !important;
+    overflow: auto;
+}
+
+.card-group {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 0px;
+  padding-right: 40px;
+}
+
+.cards {
+  cursor: pointer;
+}
+
+.filter {
+  flex: 0.8;
+}

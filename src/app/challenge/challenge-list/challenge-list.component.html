@@ -1,0 +1,27 @@
+<div class="screen-container">
+  <div class="container">
+    <div class="header">
+      <div>
+        <h1>Mis retos creados</h1>
+      </div>
+      <div class="float-left">
+        <button primary mat-button routerLink="/reto">Crear reto</button>
+      </div>
+    </div>
+
+    <div class="challengeList">
+      <div class="filter">
+        <mat-form-field appearance="outline">
+          <mat-label>Filtrar</mat-label>
+          <input matInput name="filter" [(ngModel)]="filter" matInput placeholder="Filtrar" />
+          <span matPrefix><mat-icon class="icon" matSuffix>search</mat-icon>&nbsp;</span>
+          
+        </mat-form-field>
+      </div>
+      <div *ngFor="let challenge of challenges" class="card-group">
+        <app-challenge-item-list [challenge]="challenge" (closeDialog)="ngOnInit()"></app-challenge-item-list>
+      </div>
+      <h2 class="mat-h2" *ngIf="challenges == null || challenges.length == 0">No has creado ningún reto todavía.</h2>
+    </div>
+  </div>
+</div>

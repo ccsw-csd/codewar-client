@@ -1,0 +1,56 @@
+<div class="tab-container">
+
+    <div class="row-container">
+
+        <mat-form-field class="name" appearance="legacy">
+            <mat-label>Nombre del reto</mat-label>
+            <input matInput [(ngModel)]="this.challenge.name" required matInput placeholder="Nombre del reto" />
+            <mat-error>El campo no puede estar vacío</mat-error>
+        </mat-form-field>
+
+        <mat-checkbox class="tries-checkbox" [(ngModel)]="this.challenge.multipleTries">
+            Más de un intento
+        </mat-checkbox>
+
+        <mat-form-field class="chipChallenge-list">
+            <mat-chip-list #chipList aria-label="Tags selection">
+                <mat-chip *ngFor="let option of this.challenge.tags" selectable="true" removable="true"
+                    (removed)="removeTag(option)">
+                    {{ option.name }}
+                    <mat-icon matChipRemove>cancel</mat-icon>
+                </mat-chip>
+                <input class="selector" placeholder="Nueva etiqueta..." #tagInput type="button" required [matAutocomplete]="tagList"/>
+                <!--
+                    [formControl]="tagCtrl"
+                    
+                    [matChipInputFor]="chipList"
+                    
+                    [matChipInputAddOnBlur]="addOnBlur"
+                    (matChipInputTokenEnd)="add($event)"
+                -->
+            </mat-chip-list>
+
+            <mat-autocomplete #tagList="matAutocomplete" (optionSelected)="addTag($event)">
+                <ng-container *ngFor="let option of filteredTags">
+                    <mat-option [value]="option">
+                        {{ option.name }}
+                    </mat-option>
+                </ng-container>                       
+            </mat-autocomplete>
+            <!--
+
+                <mat-autocomplete #auto="matAutocomplete"
+                (optionSelected)="selected($event)">
+                <ng-container *ngFor="let option of _listOptionsTags">
+                    <mat-option *ngIf="selectedOptions.indexOf(option) < 0"
+                    [value]="option">
+                    {{ option.name }}
+                </mat-option>
+            </ng-container>            
+        </mat-autocomplete>
+    -->
+        </mat-form-field>
+
+    </div>
+
+</div>

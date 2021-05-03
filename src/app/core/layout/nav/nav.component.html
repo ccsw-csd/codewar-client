@@ -1,0 +1,19 @@
+<nav>
+  <mat-nav-list>
+    <a mat-list-item routerLinkActive="item-active" routerLink="/dashboard">
+      <span>Home</span>
+    </a>
+    <a mat-list-item routerLinkActive="item-active" routerLink="/participaciones">
+      <span>Mis participaciones</span>
+    </a>
+    <a mat-list-item routerLinkActive="item-active" routerLink="/retosdisponibles">
+      <span>Retos disponibles</span>
+    </a>
+    <a *ngIf="authService.isAdmin()" mat-list-item routerLinkActive="item-active" routerLink="/challenge-list">
+      <span>Mis retos creados</span>
+    </a>
+    <a *ngIf="authService.isAdmin()" mat-list-item routerLinkActive="item-active" routerLink="/usuarios">
+      <span>Gestión de usuarios</span>
+    </a>
+  </mat-nav-list>
+</nav>
