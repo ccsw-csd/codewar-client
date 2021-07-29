@@ -1,5 +1,6 @@
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { ChallengeService } from '../../services/challenge.service';
 import { Challenge } from '../../to/Challenge';
@@ -11,6 +12,10 @@ import { Tag } from '../../to/Tag';
   styleUrls: ['./challenge-edit-general.component.scss']
 })
 export class ChallengeEditGeneralComponent implements OnInit {
+
+  @ViewChild('tagInput', { static: false }) 
+  tagInput: ElementRef<HTMLInputElement> | undefined;
+  tagCtrl = new FormControl();
 
   @Input() challenge: Challenge = new Challenge();
 
@@ -36,6 +41,26 @@ export class ChallengeEditGeneralComponent implements OnInit {
   }
 
   addTag(event: MatAutocompleteSelectedEvent): void {
+
+    let option = this.tags.find(
+      option => option.id === event.option.value.id
+    );
+
+    if (this.challenge.tags == null) {
+      this.challenge.tags = [];
+    }
+
+    if (option != null) {
+      this.challenge.tags.push(option);
+      this.filterTags();
+    }
+
+    if (this.tagInput != null) {
+      this.tagInput.nativeElement.value = '';
+      this.tagCtrl.setValue(null);
+      this.tagInput.nativeElement.blur();
+    }
+
     console.log(event.option.value.id);
   }
 

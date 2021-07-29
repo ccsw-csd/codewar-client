@@ -12,6 +12,12 @@
     flex-direction: row;
 }
 
+.column-container {
+    display: flex;
+    flex-direction: column;
+}
+
+
 .name {
     padding-top: 10px;
     width: 600px;
