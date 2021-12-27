@@ -1,7 +1,8 @@
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { Editor, Toolbar } from 'ngx-editor';
 import { ChallengeService } from '../../services/challenge.service';
 import { Challenge } from '../../to/Challenge';
 import { Tag } from '../../to/Tag';
@@ -11,11 +12,21 @@ import { Tag } from '../../to/Tag';
   templateUrl: './challenge-edit-general.component.html',
   styleUrls: ['./challenge-edit-general.component.scss']
 })
-export class ChallengeEditGeneralComponent implements OnInit {
+export class ChallengeEditGeneralComponent implements OnInit, OnDestroy {
 
   @ViewChild('tagInput', { static: false }) 
   tagInput: ElementRef<HTMLInputElement> | undefined;
   tagCtrl = new FormControl();
+  editor: Editor;
+
+  toolbar: Toolbar = [  
+    ['text_color', 'background_color'],
+    [{ heading: ['h1', 'h2'] }],
+    ['bold', 'italic', 'underline', 'strike'],
+    ['ordered_list', 'bullet_list'],
+    ['code', 'blockquote'],
+    ['align_left', 'align_center', 'align_right', 'align_justify'],
+  ];
 
   @Input() challenge: Challenge = new Challenge();
 
@@ -24,7 +35,14 @@ export class ChallengeEditGeneralComponent implements OnInit {
 
   constructor(private challengeService: ChallengeService) { }
 
+  ngOnDestroy(): void {
+    this.editor.destroy();
+  }
+
   ngOnInit(): void {
+    this.editor = new Editor({      
+    });
+
     this.challengeService.findTags().subscribe(
       (res: Tag[]) => {
         this.tags = res;

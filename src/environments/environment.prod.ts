@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  server: 'http://ccsw.capgemini.com',
+  securityServer: 'http://ccsw.capgemini.com/sso'
 };

@@ -1,0 +1,31 @@
+<div class="tab-container">
+
+    <div class="row-container">
+        
+        <div class="column-container first">
+
+            <mat-form-field class="name" appearance="legacy">
+                <mat-label>Nombre de la Clase</mat-label>
+                <input matInput [(ngModel)]="this.challenge.className" required matInput placeholder="Nombre de la Clase" />
+                <mat-error>El campo no puede estar vacío</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="name" appearance="legacy">
+                <mat-label>Nombre del Método</mat-label>
+                <input matInput [(ngModel)]="this.challenge.functionName" required matInput placeholder="Nombre del Método" />
+                <mat-error>El campo no puede estar vacío</mat-error>
+            </mat-form-field>
+
+        </div>
+
+        <div class="column-container last">
+            <mat-label style="padding-bottom: 15px;">Código fuente</mat-label>
+            <div class="NgxEditor__Wrapper">
+                <ngx-editor
+                    [editor]="editor"                  
+                    [ngModel]="generateCode()"
+                    [disabled]="true"></ngx-editor>
+            </div>
+        </div>
+    </div>
+</div>

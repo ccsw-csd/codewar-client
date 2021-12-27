@@ -14,7 +14,7 @@
 
 .last {
     height: calc(100vh - 270px);
-    flex: 2;
+    flex: 1;
     padding: 25px 0px 15px 15px;
 
     mat-label {
@@ -31,7 +31,7 @@
 
 ::ng-deep {
     .NgxEditor {
-        height: calc(100vh - 340px) !important;
+        height: calc(100vh - 310px) !important;
         overflow: auto !important;
     }
 
@@ -42,32 +42,5 @@
 
 .name {
     max-width: 600px;
-}
-
-.tries-checkbox {
-    width: 175px;
-    padding: 25px 0px 25px 0px;
-}
-
-.chipChallenge-list {
-    max-width: 600px;
-}
-
-.selector {
-    flex: 1;
-    height: 2.5em;
-    border-width: 0px;
-    background-color: inherit;
-    &:hover {
-      cursor: pointer;
-    }
-}
-
-.selector:focus {
-    outline: 0px;
-}
-
-mat-chip {
-    margin: 0px !important;
 }
 

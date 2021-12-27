@@ -10,9 +10,11 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatSelectModule} from '@angular/material/select';
+import { NgxEditorModule } from 'ngx-editor';
+import { ChallengeEditCodeComponent } from './challenge-edit/challenge-edit-code/challenge-edit-code.component';
 
 @NgModule({
-  declarations: [ChallengeEditComponent, ChallengeListComponent, ChallengeItemListComponent, ChallengeEditGeneralComponent],
+  declarations: [ChallengeEditComponent, ChallengeListComponent, ChallengeItemListComponent, ChallengeEditGeneralComponent, ChallengeEditCodeComponent],
   imports: [
     CommonModule,
     CoreModule,
@@ -21,6 +23,7 @@ import {MatSelectModule} from '@angular/material/select';
     MatCheckboxModule,
     MatAutocompleteModule,
     MatSelectModule,
+    NgxEditorModule,
   ]
 })
 export class ChallengeModule { }

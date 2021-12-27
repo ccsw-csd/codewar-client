@@ -301,3 +301,14 @@ span.text_red {
     color: $primary !important;
   }
 }
+
+
+.row-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.column-container {
+  display: flex;
+  flex-direction: column;
+}
