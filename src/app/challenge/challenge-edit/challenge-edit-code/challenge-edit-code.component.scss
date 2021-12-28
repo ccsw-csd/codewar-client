@@ -7,40 +7,48 @@
 }
 
 .first {
-    height: calc(100vh - 270px);
     flex: 1;
-    padding: 25px 15px 15px 0px;
+    max-width: 600px;
+    height: calc(100vh - 270px);
+    margin: 25px 50px 15px 0px;
+
+    .padding-top {
+        margin-top: 25px;
+    }
+
+    .button-container {
+
+        margin-left: 15px;
+
+        button {
+            margin-top: 10px;
+            min-width: 30px;
+            width: 30px;
+            border-radius: 30px;
+            min-height: 30px;
+            max-height: 30px;
+        }
+    }
 }
 
 .last {
     height: calc(100vh - 270px);
     flex: 1;
-    padding: 25px 0px 15px 15px;
+    margin: 25px 0px 15px 15px;
 
     mat-label {
-        height: 25px;
+        height: 35px;
     }
 
-    .NgxEditor__Wrapper {
+    .app-ace-editor {
         flex: 1;
-
-        border: 1px solid $primary;
-        border-radius: 2px;
+    
+        border: 2px solid #f8f9fa;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     }
+    
 }
 
-::ng-deep {
-    .NgxEditor {
-        height: calc(100vh - 310px) !important;
-        overflow: auto !important;
-    }
 
-    svg {
-        fill: $dark;
-    }
-}
 
-.name {
-    max-width: 600px;
-}
 

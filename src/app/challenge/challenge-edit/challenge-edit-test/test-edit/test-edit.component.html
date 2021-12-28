@@ -1,0 +1,38 @@
+<div class="column-container" style="height: 100%">
+
+    <h1>Edición de Prueba</h1>
+    <div class="data-container">
+        
+        <div class="data-container-general">
+            <mat-form-field class="name" appearance="legacy">
+                <input matInput [(ngModel)]="this.test.name" required matInput placeholder="Nombre de la prueba" />
+                <mat-error>El campo no puede estar vacío</mat-error>
+            </mat-form-field>
+            
+            <mat-form-field class="timeout" appearance="legacy">
+                <input matInput [(ngModel)]="this.test.timeout" matInput placeholder="Timeout (ms)" />
+            </mat-form-field>        
+            
+            <mat-checkbox class="visible" [(ngModel)]="this.test.visible">
+                Visible
+            </mat-checkbox>
+        </div>
+
+        <h2>Valores de entrada</h2>
+        <mat-form-field *ngFor="let item of this.test.valueIn" class="name" appearance="legacy">
+            <textarea matInput [(ngModel)]="item.value" matInput placeholder="Parámetro ({{item.type}} {{item.name}})"></textarea>
+        </mat-form-field>        
+
+        <h2>Valor de salida</h2> 
+        <mat-form-field class="name" appearance="legacy">
+            <textarea matInput [(ngModel)]="this.test.valueOut.value" required matInput placeholder="Valor esperado ({{this.test.valueOut.type}})"></textarea>
+            <mat-error>El campo no puede estar vacío</mat-error>
+        </mat-form-field>
+
+    </div>
+    <div class="button-container float-left">
+        <button secondary mat-button (click)="close()">Cerrar</button>&nbsp;&nbsp;
+        <button primary mat-button (click)="save()">Guardar</button>
+    </div>
+</div>
+

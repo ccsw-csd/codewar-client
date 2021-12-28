@@ -11,19 +11,20 @@
         </div>
 
         <mat-tab-group id="tabs" color="primary">
-
-            <mat-tab label="Código" tabindex="1">
-                <app-challenge-edit-code [challenge]="challenge">
-                </app-challenge-edit-code>
-            </mat-tab>
             
             <mat-tab label="General" tabindex="0">
                 <app-challenge-edit-general [challenge]="challenge">
                 </app-challenge-edit-general>
             </mat-tab>            
             
+            <mat-tab label="Código" tabindex="1">
+                <app-challenge-edit-code [challenge]="challenge">
+                </app-challenge-edit-code>
+            </mat-tab>
 
             <mat-tab label="Pruebas" tabindex="2">
+                <app-challenge-edit-test [challenge]="challenge">
+                </app-challenge-edit-test>
             </mat-tab>
 
         </mat-tab-group>

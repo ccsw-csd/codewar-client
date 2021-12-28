@@ -1,0 +1,22 @@
+<div class="list-item">
+    <mat-form-field class="name" appearance="legacy">
+        <input matInput [value]="getName(item)" [readonly]="true" matInput placeholder="Nombre de la prueba"/>
+    </mat-form-field>
+
+    <mat-form-field class="value-in" appearance="legacy">
+        <input matInput [value]="getInParameter(item)" [readonly]="true" matInput placeholder="Parámetros de entrada"/>
+    </mat-form-field>
+
+    <mat-form-field class="value-out" appearance="legacy">
+        <input matInput [value]="getOutParameter(item)" [readonly]="true" matInput placeholder="Parámetros de salida"/>
+    </mat-form-field>
+
+    <mat-form-field class="timeout" appearance="legacy">
+        <input matInput [value]="getTimeout(item)" [readonly]="true" matInput placeholder="Timeout (ms)"/>
+    </mat-form-field>
+
+    <div class="list-button"> 
+        <button secondary mat-button (click)="delete()"><mat-icon>delete</mat-icon></button>&nbsp;&nbsp;
+        <button primary mat-button (click)="edit()"><mat-icon>edit</mat-icon></button>
+    </div>
+</div>    

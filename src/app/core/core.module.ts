@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { LayoutComponent } from './layout/layout.component';
@@ -26,9 +26,10 @@ import {MatCardModule} from '@angular/material/card';
 import {MatChipsModule} from '@angular/material/chips';
 import { CardChipComponent } from './card-chip/card-chip.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { DialogComponent } from './dialog/dialog.component';
 
 @NgModule({
-  declarations: [LayoutComponent, HeaderComponent, NavComponent, UserEditComponent, CardChipComponent,],
+  declarations: [LayoutComponent, HeaderComponent, NavComponent, UserEditComponent, CardChipComponent, DialogComponent,],
   imports: [
     CommonModule,
     MatSnackBarModule,

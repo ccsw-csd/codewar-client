@@ -1,0 +1,46 @@
+@import './src/assets/scss/master';
+
+
+.list-item {
+    display: flex;
+    column-gap: 10px;
+    flex-direction: row;
+    align-items: center;
+
+    .timeout {
+        text-align: right;
+        width: 75px;
+    }
+
+    .name {
+        flex: 1;
+    }
+
+    .value-out {
+        flex: 1;
+    }
+
+    .value-in {
+        flex: 2;
+    }
+
+
+
+    .list-button {
+
+        text-align: center;
+        width: 110px;
+        margin-bottom: 10px;            
+
+        button {
+            width: 40px;
+            min-width: 40px;
+            height: 30px;
+            min-height: 30px;
+            
+            mat-icon {
+                font-size: 20px;
+            }
+        }
+    }
+}

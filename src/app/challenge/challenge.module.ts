@@ -12,9 +12,12 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatSelectModule} from '@angular/material/select';
 import { NgxEditorModule } from 'ngx-editor';
 import { ChallengeEditCodeComponent } from './challenge-edit/challenge-edit-code/challenge-edit-code.component';
+import { ChallengeEditTestComponent } from './challenge-edit/challenge-edit-test/challenge-edit-test.component';
+import { TestCardComponent } from './challenge-edit/challenge-edit-test/test-card/test-card.component';
+import { TestEditComponent } from './challenge-edit/challenge-edit-test/test-edit/test-edit.component';
 
 @NgModule({
-  declarations: [ChallengeEditComponent, ChallengeListComponent, ChallengeItemListComponent, ChallengeEditGeneralComponent, ChallengeEditCodeComponent],
+  declarations: [ChallengeEditComponent, ChallengeListComponent, ChallengeItemListComponent, ChallengeEditGeneralComponent, ChallengeEditCodeComponent, ChallengeEditTestComponent, TestCardComponent, TestEditComponent],
   imports: [
     CommonModule,
     CoreModule,
