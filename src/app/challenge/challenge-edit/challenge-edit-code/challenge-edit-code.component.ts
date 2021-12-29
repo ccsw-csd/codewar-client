@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ChallengeService } from '../../services/challenge.service';
-import { Challenge } from '../../to/Challenge';
+import { ChallengeEdit } from '../../to/ChallengeEdit';
 
 import * as ace from "ace-builds";
 import { Parameter } from '../../to/Parameter';
@@ -12,7 +12,7 @@ import { Parameter } from '../../to/Parameter';
 })
 export class ChallengeEditCodeComponent implements OnInit, AfterViewInit {
 
-  @Input() challenge: Challenge = new Challenge();
+  @Input() challenge: ChallengeEdit = new ChallengeEdit();
   @ViewChild("editor") private editor: ElementRef<HTMLElement>;
   aceEditor;
 

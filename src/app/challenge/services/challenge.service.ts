@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Challenge } from '../to/Challenge';
+import { ChallengeEdit } from '../to/ChallengeEdit';
 import { Tag } from '../to/Tag';
 
 @Injectable({
@@ -32,5 +33,12 @@ export class ChallengeService {
       environment.server + '/challenge/tags'
     );
   }  
+
+  save(challenge : ChallengeEdit): any {
+    return this.http.post<any>(
+      environment.server + '/challenge/', challenge
+    );
+
+  }
 
 }

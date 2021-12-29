@@ -4,7 +4,7 @@ import { FormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { Editor, Toolbar } from 'ngx-editor';
 import { ChallengeService } from '../../services/challenge.service';
-import { Challenge } from '../../to/Challenge';
+import { ChallengeEdit } from '../../to/ChallengeEdit';
 import { Tag } from '../../to/Tag';
 
 @Component({
@@ -28,7 +28,7 @@ export class ChallengeEditGeneralComponent implements OnInit, OnDestroy {
     ['align_left', 'align_center', 'align_right', 'align_justify'],
   ];
 
-  @Input() challenge: Challenge = new Challenge();
+  @Input() challenge: ChallengeEdit = new ChallengeEdit();
 
   tags: Tag[] = [];
   filteredTags: Tag[] = [];

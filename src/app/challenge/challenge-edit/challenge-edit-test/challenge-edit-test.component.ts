@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/core/dialog/dialog.component';
 import { EventData } from 'src/app/core/to/EventData';
-import { Challenge } from '../../to/Challenge';
+import { ChallengeEdit } from '../../to/ChallengeEdit';
 import { Test } from '../../to/Test';
 import { TestValue } from '../../to/TestValue';
 import { TestEditComponent } from './test-edit/test-edit.component';
@@ -14,7 +14,7 @@ import { TestEditComponent } from './test-edit/test-edit.component';
 })
 export class ChallengeEditTestComponent implements OnInit {
 
-  @Input() challenge: Challenge = new Challenge();
+  @Input() challenge: ChallengeEdit = new ChallengeEdit();
 
   constructor(
     public matDialog: MatDialog
