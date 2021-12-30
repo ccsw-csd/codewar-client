@@ -5,7 +5,8 @@ import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { Editor, Toolbar } from 'ngx-editor';
 import { ChallengeService } from '../../services/challenge.service';
 import { ChallengeEdit } from '../../to/ChallengeEdit';
-import { Tag } from '../../to/Tag';
+import { Tag } from '../../../core/to/Tag';
+import { MasterService } from 'src/app/core/services/master.service';
 
 @Component({
   selector: 'app-challenge-edit-general',
@@ -33,7 +34,9 @@ export class ChallengeEditGeneralComponent implements OnInit, OnDestroy {
   tags: Tag[] = [];
   filteredTags: Tag[] = [];
 
-  constructor(private challengeService: ChallengeService) { }
+  constructor(
+    private masterService: MasterService
+  ) { }
 
   ngOnDestroy(): void {
     this.editor.destroy();
@@ -43,7 +46,7 @@ export class ChallengeEditGeneralComponent implements OnInit, OnDestroy {
     this.editor = new Editor({      
     });
 
-    this.challengeService.findTags().subscribe(
+    this.masterService.findTags().subscribe(
       (res: Tag[]) => {
         this.tags = res;
         this.filterTags();

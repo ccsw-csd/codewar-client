@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Challenge } from '../../to/Challenge';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { EventData } from 'src/app/core/to/EventData';
+import { ChallengeItemList } from '../../to/ChallengeItemList';
 
 @Component({
   selector: 'app-challenge-item-list',
@@ -9,20 +9,27 @@ import { Challenge } from '../../to/Challenge';
 })
 export class ChallengeItemListComponent implements OnInit {
 
-  @Input() challenge: Challenge | undefined;
+  @Input() challenge: ChallengeItemList | undefined;
+  @Output() eventEmitter = new EventEmitter<EventData<ChallengeItemList>>();
 
-  constructor(private router: Router) { 
+  constructor() { 
   }
 
   ngOnInit(): void {
   }
 
+  public tags() : string[] {
+
+    if (this.challenge.tagsName == null || this.challenge.tagsName.length == 0) return [];
+
+    return this.challenge.tagsName.split(",");
+  }
 
   public getColor(): string {
     let color: string;
 
     let status = '';
-    if (this.challenge != null && this.challenge.status != null) status = this.challenge.status.code;
+    if (this.challenge != null && this.challenge.statusCode != null) status = this.challenge.statusCode;
 
     switch (status) {
       case 'ACT':
@@ -39,20 +46,24 @@ export class ChallengeItemListComponent implements OnInit {
     return color;
   }
 
-  public activateChallengeDialog() :void {
+  public deleteChallenge() : void {
+    this.eventEmitter.next(new EventData<ChallengeItemList>('delete', this.challenge));
+  }
+
+  public enableChallenge() :void {
 
   }
 
-  public disableChallengeDialog() : void {
+  public disableChallenge() : void {
 
   }
 
   public visualizeChallenge() : void {
-    this.router.navigate(['challenge-edit', this.challenge != null ? this.challenge.id : null]);
+    
   }
 
   public editChallenge() : void {
-    this.router.navigate(['challenge-edit', this.challenge != null ? this.challenge.id : null]);
+    this.eventEmitter.next(new EventData<ChallengeItemList>('edit', this.challenge));
   }
 
 }

@@ -1,9 +1,11 @@
-import { AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { ChallengeService } from '../../services/challenge.service';
 import { ChallengeEdit } from '../../to/ChallengeEdit';
 
 import * as ace from "ace-builds";
 import { Parameter } from '../../to/Parameter';
+import { ParameterType } from 'src/app/core/to/ParameterType';
+import { MasterService } from 'src/app/core/services/master.service';
 
 @Component({
   selector: 'app-challenge-edit-code',
@@ -16,13 +18,28 @@ export class ChallengeEditCodeComponent implements OnInit, AfterViewInit {
   @ViewChild("editor") private editor: ElementRef<HTMLElement>;
   aceEditor;
 
+  types : ParameterType[] = [];
+
   requiredEmpty : boolean = false;
 
-  constructor(private challengeService: ChallengeService) { }
-
+  constructor(
+    private masterService: MasterService
+  ) { }
 
   ngOnInit(): void {
+
+    this.masterService.findParameterTypes().subscribe(
+      (types: ParameterType[]) => {
+        this.types = types;
+      }
+    );
+
   }
+
+  ngOnChanges(changes: SimpleChanges) {        
+    this.changeCode();
+    
+}
 
   ngAfterViewInit(): void {
     ace.config.set("fontSize", "14px");
@@ -32,8 +49,6 @@ export class ChallengeEditCodeComponent implements OnInit, AfterViewInit {
     this.aceEditor.setTheme('ace/theme/twilight');
     this.aceEditor.session.setMode('ace/mode/java');
     this.aceEditor.setReadOnly(true);
-
-    this.changeCode();
   }
 
   removeInParameter() : void {
@@ -78,6 +93,9 @@ export class ChallengeEditCodeComponent implements OnInit, AfterViewInit {
 
   changeCode() : void {
 
+    if (this.aceEditor == null) return;
+    if (this.aceEditor.session == null) return;
+    
     this.aceEditor.session.setValue(this.generateCode());
 
   }

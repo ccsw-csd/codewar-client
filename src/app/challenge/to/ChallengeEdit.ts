@@ -1,7 +1,7 @@
 import { User } from "src/app/core/to/User";
-import { ChallengeStatus } from "./ChallengeStatus";
+import { ChallengeStatus } from "../../core/to/ChallengeStatus";
 import { Parameter } from "./Parameter";
-import { Tag } from "./Tag";
+import { Tag } from "../../core/to/Tag";
 import { Test } from "./Test";
 
 export class ChallengeEdit {

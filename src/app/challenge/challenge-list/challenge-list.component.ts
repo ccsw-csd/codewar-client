@@ -5,6 +5,11 @@ import { ChallengeService } from '../services/challenge.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { Challenge } from '../to/Challenge';
+import { ChallengeItemList } from '../to/ChallengeItemList';
+import { EventData } from 'src/app/core/to/EventData';
+import { Router } from '@angular/router';
+import { DialogComponent } from 'src/app/core/dialog/dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-challenge-list',
@@ -13,22 +18,61 @@ import { Challenge } from '../to/Challenge';
 })
 export class ChallengeListComponent implements OnInit {
 
-  challenges?: Challenge[];
+  challenges?: ChallengeItemList[];
   filter: string = "";
+  isloading : boolean = false;
 
   constructor(
     private challengeService : ChallengeService,
+    private router: Router,
+    private matDialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
 
+    this.load();
+  }
+
+  load() : void {
+    this.isloading = true;
     this.challengeService.findMyChallenges().subscribe(
-      (res: Challenge[]) => {
+      (res) => {
         this.challenges = res;
+        this.isloading = false;
       }
     );
+  }
+
+  receiveEvent($event : EventData<ChallengeItemList>) : void {
+    
+    let challenge : ChallengeItemList = $event.getData();
+
+    if ($event.getAction() == 'delete')     this.delete(challenge);    
+    else if ($event.getAction() == 'edit')  this.edit(challenge);
+
+  }
+
+  private delete(challenge : ChallengeItemList) : void {
+    const modalDialog = this.matDialog.open(DialogComponent, {
+      height: "250px",
+      width: "600px",
+      data: {title: '¿Desea borrar el reto?', description: 'Atención, si borra el reto ya no podrá recuperar la información. ¿Está seguro que desea borrar el reto "'+challenge.name+'"?'}
+    });
 
 
+    modalDialog.afterClosed().subscribe(result => {
+      if (result == true) {
+
+        this.isloading = true;
+        this.challengeService.delete(challenge.id).subscribe(res => {
+          this.load();
+        });
+      }
+    });
+  }
+
+  private edit(challenge : ChallengeItemList) : void {
+    this.router.navigate(['challenge-edit', challenge != null ? challenge.id : null]);
   }
 
 }

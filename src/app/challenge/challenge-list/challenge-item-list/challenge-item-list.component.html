@@ -20,23 +20,19 @@
                     <chip [style]="'filled'" [icon]="'cached'"
                         [tooltip]="'Número de intentos disponibles para el reto'">
                         {{ (this.challenge.multipleTries) ? '∞' : '1' }}</chip>
+                    <chip *ngFor="let item of tags()" [icon]="''" [style]="'red-chip'">{{item}}</chip>
                 </div>
             </div>
         </div>
             
         <div class="card-buttons">
 
-            <button secondary-link mat-button *ngIf="challenge.status?.code === 'PND'"
-            (click)="activateChallengeDialog()">Activar</button>
-            <button secondary-link mat-button *ngIf="challenge.status?.code === 'ACT'"
-            (click)="disableChallengeDialog()">Finalizar</button>
+            <button secondary-link mat-button *ngIf="challenge.statusCode === 'PND'" (click)="deleteChallenge()">Eliminar</button>
+            <button secondary-link mat-button *ngIf="challenge.statusCode === 'PND'" (click)="enableChallenge()">Activar</button>
+            <button secondary-link mat-button *ngIf="challenge.statusCode === 'ACT'" (click)="disableChallenge()">Finalizar</button>
             
-            <button primary-link mat-button *ngIf="challenge.status?.code !== 'PND'; else editButton"
-            (click)="visualizeChallenge()">Visualizar</button>
-            <ng-template #editButton>
-                <button primary-link mat-button (click)="editChallenge()">Editar
-                </button>
-            </ng-template>
+            <button primary-link mat-button *ngIf="challenge.statusCode !== 'PND'" (click)="visualizeChallenge()">Visualizar</button>
+            <button primary-link mat-button *ngIf="challenge.statusCode === 'PND'" (click)="editChallenge()">Editar</button>
         </div>
 
 

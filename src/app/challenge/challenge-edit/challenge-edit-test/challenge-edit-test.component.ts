@@ -17,7 +17,7 @@ export class ChallengeEditTestComponent implements OnInit {
   @Input() challenge: ChallengeEdit = new ChallengeEdit();
 
   constructor(
-    public matDialog: MatDialog
+    private matDialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -27,7 +27,7 @@ export class ChallengeEditTestComponent implements OnInit {
     
     let test : Test = $event.getData();
 
-    if ($event.getAction() == 'delete')       this.deleteTest(test);    
+    if ($event.getAction() == 'delete')     this.deleteTest(test);    
     else if ($event.getAction() == 'edit')  this.editTest(test);
 
   }
@@ -48,13 +48,15 @@ export class ChallengeEditTestComponent implements OnInit {
 
   editTest(test? : Test) {
 
-    if (test == null) {
+    let isNew : boolean = false;
 
-      let outValue = new TestValue(null, this.challenge.outParameter);
+    if (test == null) {
+      isNew = true;
+      let outValue = new TestValue('', this.challenge.outParameter);
       
       let inValue : TestValue[] = [];
       this.challenge.inParameter.forEach(item => {
-        inValue.push(new TestValue(null, item));
+        inValue.push(new TestValue('', item));
       })
 
 
@@ -70,11 +72,14 @@ export class ChallengeEditTestComponent implements OnInit {
 
     modalDialog.afterClosed().subscribe(result => {
 
+      console.log(result, test);
+
       if (result != null) {
-        if (test == null) this.challenge.test.push(result);
+        if (isNew) {
+          this.challenge.test.push(result);
+          console.log(this.challenge.test);
+        }
         else {
-
-
           let index = this.challenge.test.findIndex(x => x == test);
           this.challenge.test[index] = result;
         }

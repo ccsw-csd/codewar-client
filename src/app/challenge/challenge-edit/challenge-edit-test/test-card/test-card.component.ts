@@ -26,7 +26,7 @@ export class TestCardComponent implements OnInit {
   }
   
   getInParameter(item : Test) : string {
-    return item.valueIn.map(item => item.value).join('; ');
+    return item.valueIn.map(item => item.value).join(' | ');
   }
 
   getOutParameter(item : Test) : string {

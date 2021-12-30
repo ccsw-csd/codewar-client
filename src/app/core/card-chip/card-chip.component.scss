@@ -3,6 +3,7 @@
 $icon-size: 14px;
 
 .chip {
+  cursor: default;
   display: flex;
   width: fit-content;
   border-radius: 100px;
@@ -35,4 +36,8 @@ $icon-size: 14px;
 
 .outlined {
   border: 1px solid $border-color;
+}
+
+.red-chip {
+  background-color: #ffeded;
 }

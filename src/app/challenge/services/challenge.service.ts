@@ -4,7 +4,8 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Challenge } from '../to/Challenge';
 import { ChallengeEdit } from '../to/ChallengeEdit';
-import { Tag } from '../to/Tag';
+import { Tag } from '../../core/to/Tag';
+import { ChallengeItemList } from '../to/ChallengeItemList';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +17,8 @@ export class ChallengeService {
   ) { }
 
 
-  findMyChallenges(): Observable<Challenge[]> {
-    return this.http.get<Challenge[]>(
+  findMyChallenges(): Observable<ChallengeItemList[]> {
+    return this.http.get<ChallengeItemList[]>(
       environment.server + '/challenge/'
     );
   }
@@ -26,19 +27,22 @@ export class ChallengeService {
     return this.http.get<Challenge>(
       environment.server + '/challenge/'+id+'/'
     );
-  }  
-  
-  findTags(): Observable<Tag[]> {
-    return this.http.get<Tag[]>(
-      environment.server + '/challenge/tags'
-    );
-  }  
+  }   
 
-  save(challenge : ChallengeEdit): any {
+  save(challengeId : number, challenge : ChallengeEdit): any {
+
+    let url : string = environment.server + '/challenge/';
+    if (challengeId != null) url += challengeId+"/";
+
     return this.http.post<any>(
-      environment.server + '/challenge/', challenge
+      url, challenge
     );
 
   }
+
+  delete(challengeId: number): Observable<void> {
+    return this.http.delete<any>(environment.server + '/challenge/'+challengeId+'/');      
+  }
+
 
 }

@@ -1,36 +1,35 @@
 @import './src/assets/scss/master';
 
+.header {
+  height: 50px;
+}
+
 .filter {
-    width: 60%;
+  width: 60%;
+  height: 80px !important;
 
-    mat-form-field {
-        width: 100%;
-    }
+  mat-form-field {
+    width: 100%;
+  }
 
+  .icono-filter {
+    position: relative;
+    top: 5px;
+  }
 }
 
-.icono-filter {
-  position: relative;
-  top: 5px;
-}
+
 
 .challengeList {
-    margin-top: 25px;
-    height: calc(100vh - 200px) !important;
-    overflow: auto;
-}
+  flex: 1;
+  margin-top: 25px;
+  overflow: auto;
 
-.card-group {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 0px;
-  padding-right: 40px;
-}
 
-.cards {
-  cursor: pointer;
-}
-
-.filter {
-  flex: 0.8;
+  .card-group {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 0px;
+    padding-right: 40px;
+  }
 }

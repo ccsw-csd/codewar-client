@@ -21,10 +21,7 @@
                 <mat-form-field style="width: 100px;padding-right: 25px;">
                     <mat-label>Tipo</mat-label>
                     <mat-select [(ngModel)]="this.challenge.outParameter.type" required placeholder="Tipo" (selectionChange)="changeParameter()">
-                        <mat-option value="String">String</mat-option>
-                        <mat-option value="Long">Long</mat-option>
-                        <mat-option value="String[]">String[]</mat-option>
-                        <mat-option value="Long[]">Long[]</mat-option>
+                        <mat-option *ngFor="let type of types" [value]="type.code">{{type.name}}</mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>
@@ -34,10 +31,7 @@
                 <mat-form-field style="width: 100px;padding-right: 25px;">
                     <mat-label>Tipo</mat-label>
                     <mat-select [(ngModel)]="item.type" required placeholder="Tipo" (selectionChange)="changeParameter()">
-                        <mat-option value="String">String</mat-option>
-                        <mat-option value="Long">Long</mat-option>
-                        <mat-option value="String[]">String[]</mat-option>
-                        <mat-option value="Long[]">Long[]</mat-option>
+                        <mat-option *ngFor="let type of types" [value]="type.code">{{type.name}}</mat-option>
                     </mat-select>
                 </mat-form-field>
                 
