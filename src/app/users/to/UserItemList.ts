@@ -1,6 +1,6 @@
 import { Role } from "src/app/core/to/Role";
 
-export interface ListUser {
+export interface UserItemList {
     username: string; 
     role: string;
     firstName: string; 

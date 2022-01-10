@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { ListUser } from '../to/ListUser';
+import { UserItemList } from '../to/UserItemList';
 import { MatTableDataSource } from '@angular/material/table';
 import { UsersService } from '../services/users.service';
 import { FormControl } from '@angular/forms';
@@ -16,13 +16,12 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class UsersListComponent implements OnInit {
 
-  dataSource = new MatTableDataSource<ListUser>();
+  dataSource = new MatTableDataSource<UserItemList>();
   displayedColumns: string[] = ['username', 'firstName', 'lastName', 'email', 'role', 'delete' ];
   searchUsersCtrl = new FormControl();
   isLoading = false;
   users: any[];
   errorMsg: string;
-  userUpdate: import("c:/Users/asolerpa/codewar/codewar-client/src/app/core/to/User").User;
 
   constructor(
     private usersService: UsersService, 
@@ -33,16 +32,9 @@ export class UsersListComponent implements OnInit {
   ngOnInit(): void {
 
 
-    this.usersService.getUsers().subscribe(
-      (res: ListUser[]) => {
-        let list = [];
-        for(let user of res) {
-
-          if(user.role != "Developer"){
-            list.push(user);
-          }
-        }
-        this.dataSource.data = list;
+    this.usersService.findList().subscribe(
+      (res: UserItemList[]) => {
+        this.dataSource.data = res;
       }
     );
 
@@ -57,35 +49,27 @@ export class UsersListComponent implements OnInit {
       }),
       switchMap(value =>
         iif(() => value.length > 2,
-        this.usersService.getUsersByFilter(value))
+        this.usersService.findUsersByFilter(value))
         .pipe(
           finalize(() => { this.isLoading = false; }),
         )
       )
     )
     .subscribe((data: any) => {
-
-      this.users = [];
-
-      for(let user of data) {
-        if(user.role == "Developer"){
-          this.users.push(user);
-        }
-      }
+      this.users = data;
     }
   );
   }
 
-  addUser(user: ListUser) {
+  addUser(user: UserItemList) {
 
-    user.role = "Manager";
-    this.usersService.update(user).subscribe(result => {
+    this.usersService.updateUserRole(user.username, "MANAGER").subscribe(result => {
       this.ngOnInit();
     }); 
 
   }
 
-  deleteUser(user: ListUser) {
+  deleteUser(user: UserItemList) {
 
     const dialogRef = this.dialog.open(DialogComponent, {
       data: { title: "Eliminar usuario", description: "¿Estas seguro de eliminar el usuario: " + user.username + "?" }
@@ -93,8 +77,7 @@ export class UsersListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        user.role = "Developer";
-        this.usersService.update(user).subscribe(result => {
+        this.usersService.updateUserRole(user.username, "DEVELOP").subscribe(result => {
           this.ngOnInit();
         }); 
       }

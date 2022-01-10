@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ListUser } from '../to/ListUser';
+import { UserItemList } from '../to/UserItemList';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
@@ -20,22 +20,22 @@ export class UsersService {
 
   ) { }
 
-  getUsers(): Observable<ListUser[]> {
+  findList(): Observable<UserItemList[]> {
 
-    return this.http.get<ListUser[]>(
+    return this.http.get<UserItemList[]>(
       environment.server + this.url + 'list'
     );
   }
 
 
-  getUsersByFilter(filter: String): Observable<ListUser[]> {
+  findUsersByFilter(filter: String): Observable<UserItemList[]> {
 
-    return this.http.get<ListUser[]>(
+    return this.http.get<UserItemList[]>(
       environment.server + this.url + filter);
   }
 
-  update(user: ListUser): any {
+  updateUserRole(username: String, role: String): any {
     return this.http.post<any>(
-      environment.server + '/user/role',user);
+      environment.server + this.url + username +'/' + role, "");
   }
 }
