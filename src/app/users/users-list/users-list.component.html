@@ -1,0 +1,65 @@
+<div class="screen-container">
+    <div class="container">
+        <div class="header">
+            <div>
+                <h1>Gestión de usuarios</h1>
+            </div>
+        </div>
+        <div>
+            <div>
+                <mat-form-field class="input-form">
+                    <input matInput placeholder="Añadir usuario" aria-label="State" [matAutocomplete]="autocompleteUsers" [formControl]="searchUsersCtrl">
+                    <mat-autocomplete #autocompleteUsers="matAutocomplete">
+                    <mat-option *ngIf="isLoading" class="is-loading">Loading...</mat-option>
+                    <ng-container *ngIf="!isLoading">
+                        <mat-option *ngFor="let user of users" [value]="user.username" (click)="addUser(user)">
+                        <span>{{user.firstName}} {{user.lastName}} (<i><b>{{user.username}}</b></i>)</span>
+                        </mat-option>
+                    </ng-container>
+                    </mat-autocomplete>
+                </mat-form-field>
+            </div>
+            <div class="users-list">
+                <mat-table [dataSource]= "dataSource">
+                    <ng-container matColumnDef="username">
+                        <mat-header-cell *matHeaderCellDef>Username</mat-header-cell>
+                        <mat-cell *matCellDef="let element" >{{element.username}}</mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="firstName">
+                        <mat-header-cell *matHeaderCellDef>First Name</mat-header-cell>
+                        <mat-cell *matCellDef="let element">{{element.firstName}}</mat-cell>
+                    </ng-container>
+
+                    
+                    <ng-container matColumnDef="lastName">
+                        <mat-header-cell *matHeaderCellDef>Last Name</mat-header-cell>
+                        <mat-cell *matCellDef="let element">{{element.lastName}}</mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="email">
+                        <mat-header-cell class="email" *matHeaderCellDef>Email</mat-header-cell>
+                        <mat-cell class="email" *matCellDef="let element">{{element.mail}}</mat-cell>
+                    </ng-container>
+
+                    
+                    <ng-container matColumnDef="role">
+                        <mat-header-cell *matHeaderCellDef>Role</mat-header-cell>
+                        <mat-cell *matCellDef="let element">{{element.role}}</mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="delete">
+                        <mat-header-cell class="borrar" *matHeaderCellDef></mat-header-cell>
+                        <mat-cell *matCellDef="let element" class="borrar">
+                            <button mat-icon-button color="accent" (click)="deleteUser(element)"><mat-icon>clear</mat-icon></button>
+                        </mat-cell>
+                    </ng-container>
+
+                    <mat-header-row *matHeaderRowDef='displayedColumns; sticky:true'></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                </mat-table>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginModule } from './login/login.module';
 import { CoreModule } from './core/core.module';
 import { ChallengeModule } from './challenge/challenge.module';
+import { UsersModule } from './users/users.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ChallengeModule } from './challenge/challenge.module';
     CoreModule,
     LoginModule,
     ChallengeModule,
+    UsersModule,
   ],  
   bootstrap: [AppComponent],
   
