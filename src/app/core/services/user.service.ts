@@ -21,4 +21,10 @@ export class UserService {
     );
   }
 
+  getUserByUsername(username: String): Observable<User> {
+    return this.http.get<User>(
+      environment.server + '/user/get/' + username,
+    );
+  }
+
 }
