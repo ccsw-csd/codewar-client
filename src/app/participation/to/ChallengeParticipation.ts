@@ -1,6 +1,6 @@
 import { Challenge } from "./Challenge";
 
-export class ParticipationChallenge {
+export class ChallengeParticipation {
 
   challenge: Challenge;
 }

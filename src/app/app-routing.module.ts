@@ -6,7 +6,7 @@ import { LayoutComponent } from './core/layout/layout.component';
 import { AuthGuard } from './core/services/auth.guard';
 import { UserResolverService } from './core/services/user-resolver.service';
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
-import { ChallengeParticipationComponent } from './dummy/challenge-participation/challenge-participation.component';
+import { ChallengeParticipationComponent } from './participation/challenge-participation/challenge-participation.component';
 import { LoginComponent } from './login/login/login.component';
 import { ChallengeParticipationListComponent } from './participation/challenge-participation-list/challenge-participation-list.component';
 import { UsersListComponent } from './users/users-list/users-list.component';

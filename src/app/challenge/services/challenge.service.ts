@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Challenge } from '../to/Challenge';
 import { ChallengeEdit } from '../to/ChallengeEdit';
-import { Tag } from '../../core/to/Tag';
 import { ChallengeItemList } from '../to/ChallengeItemList';
 
 @Injectable({
@@ -34,9 +33,7 @@ export class ChallengeService {
     let url : string = environment.server + '/challenge/';
     if (challengeId != null) url += challengeId+"/";
 
-    return this.http.post<any>(
-      url, challenge
-    );
+    return this.http.post<any>(url, challenge);
 
   }
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventData } from 'src/app/core/to/EventData';
-import { ChallengeParticipationService } from '../services/challenge-participation.service';
+import { ParticipationService } from '../services/participation.service';
 import { ChallengeParticipationItemList } from '../to/ChallengeParticipationItemList';
 
 @Component({
@@ -14,7 +14,7 @@ export class ChallengeParticipationListComponent implements OnInit {
   isloading: boolean = false;
 
   constructor( 
-    private challengeParticipationService: ChallengeParticipationService,
+    private challengeParticipationService: ParticipationService,
   ) { }
 
   ngOnInit(): void {
