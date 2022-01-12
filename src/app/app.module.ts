@@ -8,6 +8,7 @@ import { LoginModule } from './login/login.module';
 import { CoreModule } from './core/core.module';
 import { ChallengeModule } from './challenge/challenge.module';
 import { UsersModule } from './users/users.module';
+import { DummyModule } from './dummy/dummy.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { UsersModule } from './users/users.module';
     LoginModule,
     ChallengeModule,
     UsersModule,
+    DummyModule,
   ],  
   bootstrap: [AppComponent],
   

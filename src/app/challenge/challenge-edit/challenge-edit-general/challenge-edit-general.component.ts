@@ -1,9 +1,7 @@
-import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { Editor, Toolbar } from 'ngx-editor';
-import { ChallengeService } from '../../services/challenge.service';
 import { ChallengeEdit } from '../../to/ChallengeEdit';
 import { Tag } from '../../../core/to/Tag';
 import { MasterService } from 'src/app/core/services/master.service';

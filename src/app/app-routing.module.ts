@@ -6,6 +6,7 @@ import { LayoutComponent } from './core/layout/layout.component';
 import { AuthGuard } from './core/services/auth.guard';
 import { UserResolverService } from './core/services/user-resolver.service';
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
+import { ChallengeParticipationComponent } from './dummy/challenge-participation/challenge-participation.component';
 import { LoginComponent } from './login/login/login.component';
 import { UsersListComponent } from './users/users-list/users-list.component';
 
@@ -25,6 +26,7 @@ const routes: Routes = [
       { path: 'challenge-edit/:id', component: ChallengeEditComponent,},
       { path: 'challenge-edit', component: ChallengeEditComponent,},
       { path: 'usuarios', component: UsersListComponent},
+      { path: 'challenge-participation/:id', component: ChallengeParticipationComponent,},
       { path: '**', redirectTo: 'dashboard', pathMatch: 'full' },
     ]
   },
