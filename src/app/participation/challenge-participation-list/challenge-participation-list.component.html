@@ -1,0 +1,20 @@
+<div class="screen-container">
+    <div class="container">
+        <div class="header">
+            <div>
+                <h1>Retos disponibles</h1>
+            </div>
+        </div>
+
+        <div class="challengeList">
+            <div *ngFor="let challenge of challenges" class="card-group">
+                <app-challenge-participation-item-list [challenge]="challenge" (eventEmitter)="receiveEvent($event)"></app-challenge-participation-item-list>
+            </div>
+            <h2 class="mat-h2" *ngIf="challenges == null || challenges.length == 0">No hay ningún reto para participar.</h2>
+        </div>
+    </div>
+</div>
+
+<div class="loadWrapper" *ngIf="isloading">
+    <mat-spinner></mat-spinner>
+  </div>
