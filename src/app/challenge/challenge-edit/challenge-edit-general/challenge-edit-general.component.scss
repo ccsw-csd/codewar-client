@@ -29,7 +29,7 @@
     }
 }
 
-::ng-deep {
+:host::ng-deep {
     .NgxEditor {
         height: calc(100vh - 340px) !important;
         overflow: auto !important;

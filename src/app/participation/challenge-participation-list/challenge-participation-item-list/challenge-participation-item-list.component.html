@@ -12,8 +12,8 @@
                     <chip [icon]="'group_outlined'" [style]="'filled'"
                         [tooltip]="'Número de participantes en el reto'">
                         {{ this.challenge.numParticipation }}</chip>
-                    <chip [icon]="'timer'" [style]="'filled'" [tooltip]="'Fecha de finalización del reto'">
-                        {{ (this.challenge.endDate) ? (this.challenge.endDate | date: 'dd MM yyyy') : 'Sin fecha' }}
+                    <chip [icon]="'timer'" [style]="'filled'" [tooltip]="'Fecha de inicio del reto'">
+                        {{ (this.challenge.startDate) ? (this.challenge.startDate | date: 'dd/MM/yy') : 'Sin fecha' }}
                     </chip>
                     <chip [style]="'filled'" [icon]="'cached'"
                         [tooltip]="'Número de intentos disponibles para el reto'">

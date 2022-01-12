@@ -1,0 +1,41 @@
+<div class="column-container" style="height: 100%">
+
+    <h1>Participar en el reto</h1>
+
+    <div class="flex-row content-middle">
+        <div class="content-left">
+            
+            <div class="title">
+                <h3>{{ this.challenge.name}}</h3>
+            </div>
+
+            <div class="row">
+                <h3>Info general: </h3>
+                <chip [icon]="'group_outlined'" [style]="'filled'" [tooltip]="'Número de participantes en el reto'">Núm. participantes: {{ this.challenge.numParticipation }}</chip>
+                <chip [icon]="'timer'" [style]="'filled'" [tooltip]="'Fecha de inicio del reto'">Fecha de Inicio: {{(this.challenge.startDate | date: 'dd/MM/yy')}}</chip>
+                <chip [style]="'filled'" [icon]="'cached'" [tooltip]="'Número de intentos disponibles para el reto'">{{ (this.challenge.multipleTries) ? 'Participación sin límite' : 'Solo 1 intento' }}</chip>
+                <br/>
+                <h3>Tags: </h3>
+                <chip *ngFor="let item of tags()" [icon]="''" [style]="'red-chip'">{{item}}</chip>
+            </div>
+
+        </div>
+
+        <div class="content-right">
+            <h3>Descripción</h3>
+            <ngx-editor         
+                [editor]="descriptor"
+                [(ngModel)]="this.challenge.description" 
+                [disabled]="true"
+                placeholder="">
+
+            </ngx-editor>
+        </div>
+    </div>
+
+    <div class="button-container float-left">
+        <button secondary mat-button (click)="no()">Volver</button>&nbsp;&nbsp;
+        <button primary mat-button (click)="yes()">Participar</button>
+    </div>
+</div>
+

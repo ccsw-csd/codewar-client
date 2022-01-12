@@ -5,6 +5,7 @@ import { ChallengeParticipationItemListComponent } from './challenge-participati
 import { CoreModule } from '../core/core.module';
 import { NgxEditorModule } from 'ngx-editor';
 import { ChallengeParticipationComponent } from './challenge-participation/challenge-participation.component';
+import { ChallengeInfoComponent } from './challenge-participation-list/challenge-info/challenge-info.component';
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import { ChallengeParticipationComponent } from './challenge-participation/chall
     ChallengeParticipationListComponent,
     ChallengeParticipationItemListComponent,
     ChallengeParticipationComponent,
+    ChallengeInfoComponent,
   ],
   imports: [
     CommonModule,

@@ -2,6 +2,7 @@
 export class ChallengeParticipationItemList {
     id : number | null = null;
     name : string | null = null;
+    description : string | null = null;
     statusCode : string | null = null;
     statusName : string | null = null;
     tagsName : string | null = null;
