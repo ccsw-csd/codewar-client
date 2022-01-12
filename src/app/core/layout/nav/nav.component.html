@@ -6,13 +6,13 @@
     <a mat-list-item routerLinkActive="item-active" routerLink="/participaciones">
       <span>Mis participaciones</span>
     </a>
-    <a mat-list-item routerLinkActive="item-active" routerLink="/retosdisponibles">
+    <a mat-list-item routerLinkActive="item-active" routerLink="/challenge-participation-list">
       <span>Retos disponibles</span>
     </a>
     <a *ngIf="authService.isAdmin()" mat-list-item routerLinkActive="item-active" routerLink="/challenge-list">
       <span>Gestión de retos</span>
     </a>
-    <a *ngIf="authService.isAdmin()" mat-list-item routerLinkActive="item-active" routerLink="/usuarios">
+    <a *ngIf="authService.isAdmin()" mat-list-item routerLinkActive="item-active" routerLink="/user-list">
       <span>Gestión de usuarios</span>
     </a>
   </mat-nav-list>

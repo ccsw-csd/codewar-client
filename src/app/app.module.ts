@@ -9,6 +9,7 @@ import { CoreModule } from './core/core.module';
 import { ChallengeModule } from './challenge/challenge.module';
 import { UsersModule } from './users/users.module';
 import { DummyModule } from './dummy/dummy.module';
+import { ParticipationModule } from './participation/participation.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { DummyModule } from './dummy/dummy.module';
     ChallengeModule,
     UsersModule,
     DummyModule,
+    ParticipationModule,
   ],  
   bootstrap: [AppComponent],
   
