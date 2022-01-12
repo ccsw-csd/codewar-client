@@ -1,0 +1,30 @@
+<div *ngIf="challenge != null" #container class="wrapper">
+    <mat-card class="main-container mat-elevation-z0">
+        <div class="status"></div>
+
+        <div class="card-container">
+            <div class="title">
+                {{ this.challenge.name}}
+            </div>
+
+            <div class="card-chips">
+                <div class="row">
+                    <chip [icon]="'group_outlined'" [style]="'filled'"
+                        [tooltip]="'Número de participantes en el reto'">
+                        {{ this.challenge.numParticipation }}</chip>
+                    <chip [icon]="'timer'" [style]="'filled'" [tooltip]="'Fecha de finalización del reto'">
+                        {{ (this.challenge.endDate) ? (this.challenge.endDate | date: 'dd MM yyyy') : 'Sin fecha' }}
+                    </chip>
+                    <chip [style]="'filled'" [icon]="'cached'"
+                        [tooltip]="'Número de intentos disponibles para el reto'">
+                        {{ (this.challenge.multipleTries) ? '∞' : '1' }}</chip>
+                    <chip *ngFor="let item of tags()" [icon]="''" [style]="'red-chip'">{{item}}</chip>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-buttons">
+            <button primary-link mat-button (click)="participate()">Participar</button>
+        </div>
+    </mat-card>
+</div>
