@@ -51,7 +51,7 @@ export class ChallengeItemListComponent implements OnInit {
   }
 
   public enableChallenge() :void {
-
+    this.eventEmitter.next(new EventData<ChallengeItemList>('enable', this.challenge));
   }
 
   public disableChallenge() : void {

@@ -15,9 +15,10 @@ import { ChallengeEditCodeComponent } from './challenge-edit/challenge-edit-code
 import { ChallengeEditTestComponent } from './challenge-edit/challenge-edit-test/challenge-edit-test.component';
 import { TestCardComponent } from './challenge-edit/challenge-edit-test/test-card/test-card.component';
 import { TestEditComponent } from './challenge-edit/challenge-edit-test/test-edit/test-edit.component';
+import { EnableChallengeComponent } from './challenge-list/enable-challenge/enable-challenge.component';
 
 @NgModule({
-  declarations: [ChallengeEditComponent, ChallengeListComponent, ChallengeItemListComponent, ChallengeEditGeneralComponent, ChallengeEditCodeComponent, ChallengeEditTestComponent, TestCardComponent, TestEditComponent],
+  declarations: [ChallengeEditComponent, ChallengeListComponent, ChallengeItemListComponent, ChallengeEditGeneralComponent, ChallengeEditCodeComponent, ChallengeEditTestComponent, TestCardComponent, TestEditComponent, EnableChallengeComponent],
   imports: [
     CommonModule,
     CoreModule,

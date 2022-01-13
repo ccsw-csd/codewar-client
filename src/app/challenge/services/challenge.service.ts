@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Challenge } from '../to/Challenge';
+import { ChallengeCheckResult } from '../to/ChallengeCheckResult';
 import { ChallengeEdit } from '../to/ChallengeEdit';
 import { ChallengeItemList } from '../to/ChallengeItemList';
 
@@ -41,5 +41,15 @@ export class ChallengeService {
     return this.http.delete<any>(environment.server + '/challenge/'+challengeId+'/');      
   }
 
+  check(challengeId: number): Observable<ChallengeCheckResult> {
+    return this.http.get<ChallengeCheckResult>(environment.server + '/challenge/'+challengeId+'/check/');      
+  }
+
+  activate(challengeId: number): Observable<ChallengeCheckResult> {
+    return this.http.post<ChallengeCheckResult>(environment.server + '/challenge/'+challengeId+'/activate/', {});      
+  }
+
+  
+  
 
 }

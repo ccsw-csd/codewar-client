@@ -10,6 +10,7 @@ import { EventData } from 'src/app/core/to/EventData';
 import { Router } from '@angular/router';
 import { DialogComponent } from 'src/app/core/dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { EnableChallengeComponent } from './enable-challenge/enable-challenge.component';
 
 @Component({
   selector: 'app-challenge-list',
@@ -50,8 +51,27 @@ export class ChallengeListComponent implements OnInit {
     if ($event.getAction() == 'delete')     this.delete(challenge);    
     else if ($event.getAction() == 'edit')  this.edit(challenge);
     else if ($event.getAction() == 'visualize')  this.edit(challenge);
+    else if ($event.getAction() == 'enable')  this.enable(challenge);
 
   }
+
+  private enable(challenge : ChallengeItemList) : void {
+    const modalDialog = this.matDialog.open(EnableChallengeComponent, {
+      height: "600px",
+      width: "800px",
+      data: {challenge: challenge}
+    });
+
+    modalDialog.afterClosed().subscribe(result => {
+      if (result == true) {
+        this.isloading = true;
+        this.challengeService.activate(challenge.id).subscribe(res => {
+          this.load();
+        });
+      }
+    });
+  }
+
 
   private delete(challenge : ChallengeItemList) : void {
     const modalDialog = this.matDialog.open(DialogComponent, {
