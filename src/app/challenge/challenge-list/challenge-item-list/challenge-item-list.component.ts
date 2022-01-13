@@ -54,8 +54,8 @@ export class ChallengeItemListComponent implements OnInit {
     this.eventEmitter.next(new EventData<ChallengeItemList>('enable', this.challenge));
   }
 
-  public disableChallenge() : void {
-
+  public finalizeChallenge() : void {
+    this.eventEmitter.next(new EventData<ChallengeItemList>('finalize', this.challenge));    
   }
 
   public visualizeChallenge() : void {

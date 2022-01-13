@@ -52,6 +52,8 @@ export class ChallengeListComponent implements OnInit {
     else if ($event.getAction() == 'edit')  this.edit(challenge);
     else if ($event.getAction() == 'visualize')  this.edit(challenge);
     else if ($event.getAction() == 'enable')  this.enable(challenge);
+    else if ($event.getAction() == 'finalize')  this.finalize(challenge);
+    
 
   }
 
@@ -72,6 +74,25 @@ export class ChallengeListComponent implements OnInit {
     });
   }
 
+
+  
+  private finalize(challenge : ChallengeItemList) : void {
+    const modalDialog = this.matDialog.open(DialogComponent, {
+      height: "250px",
+      width: "600px",
+      data: {title: '¿Desea finalizar el reto?', description: 'Atención, una vez finalizado el reto, nadie podrá participar en él. ¿Está seguro que desea finalizar el reto "'+challenge.name+'"?'}
+    });
+
+
+    modalDialog.afterClosed().subscribe(result => {
+      if (result == true) {
+        this.isloading = true;
+        this.challengeService.finalize(challenge.id).subscribe(res => {
+          this.load();
+        });
+      }
+    });
+  }
 
   private delete(challenge : ChallengeItemList) : void {
     const modalDialog = this.matDialog.open(DialogComponent, {
@@ -95,5 +116,7 @@ export class ChallengeListComponent implements OnInit {
   private edit(challenge : ChallengeItemList) : void {
     this.router.navigate(['challenge-edit', challenge != null ? challenge.id : null]);
   }
+
+
 
 }

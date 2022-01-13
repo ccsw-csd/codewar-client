@@ -29,7 +29,7 @@
 
             <button secondary-link mat-button *ngIf="challenge.statusCode === 'PND'" (click)="deleteChallenge()">Eliminar</button>
             <button secondary-link mat-button *ngIf="challenge.statusCode === 'PND'" (click)="enableChallenge()">Activar</button>
-            <button secondary-link mat-button *ngIf="challenge.statusCode === 'ACT'" (click)="disableChallenge()">Finalizar</button>
+            <button secondary-link mat-button *ngIf="challenge.statusCode === 'ACT'" (click)="finalizeChallenge()">Finalizar</button>
             
             <button primary-link mat-button *ngIf="challenge.statusCode !== 'PND'" (click)="visualizeChallenge()">Visualizar</button>
             <button primary-link mat-button *ngIf="challenge.statusCode === 'PND'" (click)="editChallenge()">Editar</button>

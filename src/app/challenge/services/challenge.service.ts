@@ -49,6 +49,9 @@ export class ChallengeService {
     return this.http.post<ChallengeCheckResult>(environment.server + '/challenge/'+challengeId+'/activate/', {});      
   }
 
+  finalize(challengeId: number): Observable<void> {
+    return this.http.post<void>(environment.server + '/challenge/'+challengeId+'/finalize/', {});      
+  }
   
   
 
