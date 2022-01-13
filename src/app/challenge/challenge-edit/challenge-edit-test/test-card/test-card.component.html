@@ -15,7 +15,7 @@
         <input matInput [value]="getTimeout(item)" [readonly]="true" matInput placeholder="Timeout (ms)"/>
     </mat-form-field>
 
-    <div class="list-button"> 
+    <div *ngIf="readonly == false" class="list-button"> 
         <button secondary mat-button (click)="delete()"><mat-icon>delete</mat-icon></button>&nbsp;&nbsp;
         <button primary mat-button (click)="edit()"><mat-icon>edit</mat-icon></button>
     </div>

@@ -1,25 +1,21 @@
 <div class="tab-container">
-
     <div class="row-container">
-        
-
-
         <div class="column-container first">
 
             <mat-form-field class="name" appearance="legacy">
                 <mat-label>Nombre del reto</mat-label>
-                <input matInput [(ngModel)]="this.challenge.name" required matInput placeholder="Nombre del reto" />
+                <input matInput [(ngModel)]="this.challenge.name" required matInput placeholder="Nombre del reto" [readonly]="this.challenge.statusCode != 'PND'"/>
                 <mat-error>El campo no puede estar vacío</mat-error>
             </mat-form-field>
 
             <mat-form-field class="chipChallenge-list">
                 <mat-label>Tags del reto</mat-label>
                 <mat-chip-list #chipList aria-label="Tags selection">
-                    <mat-chip *ngFor="let option of this.challenge.tags" selectable="true" removable="true" (removed)="removeTag(option)">
+                    <mat-chip *ngFor="let option of this.challenge.tags" selectable="true" [removable]="this.challenge.statusCode == 'PND'" (removed)="removeTag(option)">
                         {{ option.name }}
                         <mat-icon matChipRemove>cancel</mat-icon>
                     </mat-chip>
-                    <input class="selector" placeholder="Nueva etiqueta..." #tagInput type="button" required [matAutocomplete]="tagList" [formControl]="tagCtrl"/>
+                    <input class="selector" placeholder="Nueva etiqueta..." #tagInput type="button" required [matAutocomplete]="tagList" [formControl]="tagCtrl" [readonly]="this.challenge.statusCode != 'PND'"/>
                 </mat-chip-list>
 
                 <mat-autocomplete #tagList="matAutocomplete" (optionSelected)="addTag($event)">
@@ -31,7 +27,7 @@
                 </mat-autocomplete>
             </mat-form-field>
 
-            <mat-checkbox class="tries-checkbox" [(ngModel)]="this.challenge.multipleTries">
+            <mat-checkbox class="tries-checkbox" [(ngModel)]="this.challenge.multipleTries" [disabled]="this.challenge.statusCode != 'PND'">
                 Más de un intento
             </mat-checkbox>
 
@@ -40,14 +36,14 @@
         <div class="column-container last"> 
             <mat-label style="padding-bottom: 15px;">Descripción</mat-label>
             <div class="NgxEditor__Wrapper">
-                <ngx-editor-menu 
+                <ngx-editor-menu *ngIf="this.challenge.statusCode == 'PND'" 
                     [editor]="editor"
                     [toolbar]="toolbar"></ngx-editor-menu>
                     
                 <ngx-editor
                     [editor]="editor"                  
                     [(ngModel)]="this.challenge.description"
-                    [disabled]="false"
+                    [disabled]="this.challenge.statusCode != 'PND'"
                     [placeholder]="'Escribe la descripción del problema...'"></ngx-editor>
             </div>
         </div>

@@ -65,6 +65,12 @@ export class ChallengeEditComponent implements OnInit {
   }
 
   close() : void {
+    if (this.challenge.statusCode != 'PND') {
+      this.router.navigate(['challenge-list']);
+      return;
+    }
+
+
     const modalDialog = this.matDialog.open(DialogComponent, {
       height: "250px",
       width: "600px",

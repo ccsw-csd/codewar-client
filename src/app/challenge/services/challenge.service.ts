@@ -22,8 +22,8 @@ export class ChallengeService {
     );
   }
 
-  get(id : number): Observable<Challenge> {
-    return this.http.get<Challenge>(
+  get(id : number): Observable<ChallengeEdit> {
+    return this.http.get<ChallengeEdit>(
       environment.server + '/challenge/'+id+'/'
     );
   }   

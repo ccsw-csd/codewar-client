@@ -9,6 +9,7 @@ import { EventData } from 'src/app/core/to/EventData';
 })
 export class TestCardComponent implements OnInit {
 
+  @Input() readonly: boolean;
   @Input() item: Test;
   @Output() eventEmitter = new EventEmitter<EventData<Test>>();
 

@@ -59,7 +59,7 @@ export class ChallengeItemListComponent implements OnInit {
   }
 
   public visualizeChallenge() : void {
-    
+    this.eventEmitter.next(new EventData<ChallengeItemList>('visualize', this.challenge));
   }
 
   public editChallenge() : void {

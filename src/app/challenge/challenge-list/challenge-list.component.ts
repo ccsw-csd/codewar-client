@@ -49,6 +49,7 @@ export class ChallengeListComponent implements OnInit {
 
     if ($event.getAction() == 'delete')     this.delete(challenge);    
     else if ($event.getAction() == 'edit')  this.edit(challenge);
+    else if ($event.getAction() == 'visualize')  this.edit(challenge);
 
   }
 
