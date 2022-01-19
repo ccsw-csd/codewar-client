@@ -1,0 +1,84 @@
+@import './src/assets/scss/master';
+
+
+h1 {
+    height: 50px;
+}
+
+h3 {
+    vertical-align: -webkit-baseline-middle;
+    display: inline;
+}
+
+mat-icon {
+    vertical-align: -webkit-baseline-middle;
+}
+
+.green {
+    color:green; 
+    font-weight: bold; 
+}
+
+.red {
+    color:red;
+}
+
+.blue {
+    color: $primary;
+}
+
+.test-list-container {
+    flex: 1;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    .test-container {
+        display: flex;
+        flex-direction: column;
+
+        border: 1px solid $border-color;
+        border-radius: 5px 5px 5px 5px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+
+        .test-title {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: row;
+
+            h3 {
+                flex: 1;
+            }
+        }
+
+        .test-info {
+            display: flex;
+            margin-left: 35px;
+            flex-direction: column;
+            font-family: monospace;
+        }
+    }
+}
+
+.button-container {
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    margin: 15px 0px 0px 0px;
+    gap: 10px; 
+    align-self: flex-end;
+}
+
+
+button {
+    min-width: 150px;
+}  
+
+
+button[testFail] {
+    background-color: red;
+    color: white;
+    border-color: #cc0000;
+    border-style: solid;
+    border-width: 1px;
+}

@@ -13,6 +13,8 @@ import 'ace-builds/src-noconflict/mode-java';
 import 'ace-builds/src-noconflict/theme-monokai';
 import 'ace-builds/src-noconflict/snippets/java';
 import 'ace-builds/src-noconflict/ext-language_tools';
+import { ConsoleComponent } from './console/console.component';
+import { CompilationResponse } from '../to/CompilationResponse';
 
 @Component({
   selector: 'app-challenge-participation',
@@ -21,6 +23,7 @@ import 'ace-builds/src-noconflict/ext-language_tools';
 })
 export class ChallengeParticipationComponent implements OnInit, OnDestroy, AfterViewInit {
 
+  lastExecution: CompilationResponse;
   challenge : Challenge;
   descriptor: Editor;
   challengeId : null;
@@ -44,6 +47,8 @@ export class ChallengeParticipationComponent implements OnInit, OnDestroy, After
 
 
   ngOnInit(): void {
+    this.lastExecution = null;
+
     this.descriptor = new Editor({      
     });
 
@@ -72,7 +77,7 @@ export class ChallengeParticipationComponent implements OnInit, OnDestroy, After
 
   ngAfterViewInit(): void {
     ace.config.set("fontSize", "14px");
-    ace.config.set('basePath', 'https://unpkg.com/ace-builds@1.4.12/src-noconflict')
+    ace.config.set('basePath', './assets/ace-builds')
 
     this.aceEditor = ace.edit(this.editor.nativeElement);
     this.aceEditor.setTheme('ace/theme/twilight');
@@ -98,15 +103,25 @@ export class ChallengeParticipationComponent implements OnInit, OnDestroy, After
 
 
     modalDialog.afterClosed().subscribe(result => {
-      if (result == true)
+      if (result == true) {
+
+        this.lastExecution = null;
         this.aceEditor.session.setValue(this.challenge.baseCode);
         this.aceEditor.getSession().clearAnnotations();        
+      }
     });
   }
 
 
   console(): void {
-    alert("TODO: Falta implementar");
+
+    if (this.lastExecution == null) return;
+
+    const modalDialog = this.matDialog.open(ConsoleComponent, {
+      height: "800px",
+      width: "1000px",
+      data: this.lastExecution
+    });  
   }
 
   execute(): void {
@@ -115,7 +130,7 @@ export class ChallengeParticipationComponent implements OnInit, OnDestroy, After
 
     this.participationService.execute(this.challengeId, this.aceEditor.session.getValue()).subscribe(
       response => {
-
+        
         this.isloading = false;
 
         if (response.compileError === true) {
@@ -135,6 +150,9 @@ export class ChallengeParticipationComponent implements OnInit, OnDestroy, After
 
         else {
           this.aceEditor.getSession().clearAnnotations();
+          this.lastExecution = response;
+
+          this.console();
         }
 
       }
