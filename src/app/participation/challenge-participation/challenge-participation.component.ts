@@ -91,7 +91,41 @@ export class ChallengeParticipationComponent implements OnInit, OnDestroy, After
   }
 
   sendParticipation(): void {
-    alert("TODO: Falta implementar");
+
+    let message = '';
+    let height = '';
+
+    if (this.challenge.multipleTries) {
+      message = 'Antes de enviar la participación, compruebe que el código es correcto y que funcionan correctamente las pruebas de código.<br/>&nbsp;<br/>¿Está seguro que desea enviar su participación con el código actual?';
+      height = '285px';
+    }
+    else {
+      message = 'Atención, este reto solo dispone <b>un intento</b>. Si envía el código ya no podrá volver a participar.<br/>&nbsp;<br/>Por favor, antes de enviar la participación, compruebe que el código es correcto y que funcionan correctamente las pruebas de código.<br/>&nbsp;<br/>¿Está seguro que desea enviar su participación con el código actual?';
+      height = '350px';
+    }
+
+
+    const modalDialog = this.matDialog.open(DialogComponent, {
+      height: height,
+      width: "550px",
+      data: {title: '¿Desea enviar su participarción?', description: message}
+    });
+
+
+    modalDialog.afterClosed().subscribe(result => {
+
+      if (result == true) {
+
+        this.isloading = true;
+
+        this.participationService.send(this.challengeId, this.aceEditor.session.getValue()).subscribe(
+          response => {            
+            this.isloading = false;
+            this.router.navigate(['participations']);
+          }
+        );
+      }
+    });
   }
 
   reset(): void {

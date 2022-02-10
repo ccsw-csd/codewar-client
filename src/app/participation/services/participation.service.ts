@@ -27,4 +27,9 @@ export class ParticipationService {
   execute(id: number, code: string) : Observable<CompilationResponse> {
     return this.http.post<CompilationResponse>(environment.server + '/participation/challenge/'+id+'/execute/', {code: code});
   }    
+
+  send(id: number, code: string) : Observable<CompilationResponse> {
+    return this.http.post<CompilationResponse>(environment.server + '/participation/challenge/'+id+'/', {code: code});
+  }    
+
 }

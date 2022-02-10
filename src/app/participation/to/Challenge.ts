@@ -3,5 +3,6 @@ export class Challenge {
     name : string | null = null;
     description : string | null = null;
     baseCode : string | null = null;
+    multipleTries : boolean | null = false;
   }
   
