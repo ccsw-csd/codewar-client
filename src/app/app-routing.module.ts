@@ -1,46 +1,46 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { ChallengeEditComponent } from './challenge/challenge-edit/challenge-edit.component';
-import { ChallengeListComponent } from './challenge/challenge-list/challenge-list.component';
-import { LayoutComponent } from './core/layout/layout.component';
+import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/services/auth.guard';
-import { UserResolverService } from './core/services/user-resolver.service';
-import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
-import { ChallengeParticipationComponent } from './participation/challenge-participation/challenge-participation.component';
-import { LoginComponent } from './login/login/login.component';
-import { ChallengeParticipationListComponent } from './participation/challenge-participation-list/challenge-participation-list.component';
-import { UsersListComponent } from './users/users-list/users-list.component';
+import { RefreshTokenResolverService } from './core/services/refresh-token-resolver.service';
+import { LayoutComponent } from './core/views/layout/layout.component';
+import { InternListComponent } from './intern/intern-list/intern-list.component';
+import { LoginComponent } from './login/views/login/login.component';
+import { EducationCenterListComponent } from './maintenance/education-center/education-center-list/education-center-list.component';
+import { EducationListComponent } from './maintenance/education/education-list/education-list.component';
+import { EnglishLevelListComponent } from './maintenance/english-level/english-level-list/english-level-list.component';
+import { TechnologyListComponent } from './maintenance/technology/technology-list/technology-list.component';
+import { PersonalListComponent } from './personal/personal-list/personal-list.component';
+import { PyramidListComponent } from './pyramid/pyramid-list/pyramid-list.component';
+import { PyramidTeamListComponent } from './pyramid/pyramid-team-list/pyramid-team-list.component';
 
 const routes: Routes = [
-  {
-    path: 'login',
-    component: LoginComponent,
-  },
+  { path: 'login', component: LoginComponent },
   {
     path: '',
     component: LayoutComponent,
     canActivate: [AuthGuard],
-    resolve: {user: UserResolverService},
+    canActivateChild: [AuthGuard],
+    resolve: {credentials: RefreshTokenResolverService},
     children: [
-      { path: 'dashboard', component: DashboardComponent,},
-      { path: 'challenge-list', component: ChallengeListComponent,},  
-      { path: 'challenge-edit/:id', component: ChallengeEditComponent,},
-      { path: 'challenge-edit', component: ChallengeEditComponent,},
-      { path: 'user-list', component: UsersListComponent},
-      { path: 'challenge-participation-list', component: ChallengeParticipationListComponent},
-      { path: 'challenge-participation/:id', component: ChallengeParticipationComponent,},
-      { path: '**', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: 'personal', component: PersonalListComponent}, //data:{role:['PERSONAL']}
+      { path: 'intern', component: InternListComponent},
+      { path: 'pyramid', component: PyramidListComponent},
+      { path: 'pyramid-team', component: PyramidTeamListComponent},
+      { path: 'education', component: EducationListComponent},
+      { path: 'education-center', component: EducationCenterListComponent},
+      { path: 'level', component: EnglishLevelListComponent},
+      { path: 'technology', component: TechnologyListComponent},
+      { path: '**', redirectTo: 'personal', pathMatch: 'full' },
     ]
-  },
-  { path: '**', redirectTo: 'login', pathMatch: 'full' },
-
+  },  
+  { path: '**', redirectTo: 'login', pathMatch: 'full' }
 ];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
       useHash: true,
-      enableTracing: false,
+      enableTracing: false
     }),
   ],
   exports: [RouterModule]
