@@ -1,6 +1,6 @@
 # CCSWManager
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.8.
 
 ## Development server
 
@@ -16,7 +16,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ng build --configuration=production  --base-href "/codewar/" --deploy-url "/codewar/"
 
-ng build --configuration=development  --base-href "/dev/codewar/" --deploy-url "/dev/codewar/"
+ng build --configuration=production  --base-href "/dev/codewar/" --deploy-url "/dev/codewar/"
 
 
 ## Running unit tests

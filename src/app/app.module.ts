@@ -7,10 +7,8 @@ import { CoreModule } from './core/core.module';
 import { LoginModule } from './login/login.module';
 import { DatePipe, registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
-import { PyramidModule } from './pyramid/pyramid.module';
-import { MaintenanceModule } from './maintenance/maintenance.module';
-import { PersonalModule } from './personal/personal.module';
-import { InternModule } from './intern/intern.module';
+import { UserRoleModule } from './user-role/user-role.module';
+import { AdminRoleModule } from './admin-role/admin-role.module';
 
 
 registerLocaleData(localeEs,'es');
@@ -25,10 +23,8 @@ registerLocaleData(localeEs,'es');
     BrowserAnimationsModule,
     CoreModule,
     LoginModule,
-    PersonalModule,
-    InternModule,
-    PyramidModule,
-    MaintenanceModule,
+    UserRoleModule,
+    AdminRoleModule,
   ],
   providers: [
     DatePipe
