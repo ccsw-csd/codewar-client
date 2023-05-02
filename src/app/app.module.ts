@@ -1,14 +1,17 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginModule } from './login/login.module';
 import { CoreModule } from './core/core.module';
-import { ChallengeModule } from './challenge/challenge.module';
-import { UsersModule } from './users/users.module';
-import { ParticipationModule } from './participation/participation.module';
+import { LoginModule } from './login/login.module';
+import { DatePipe, registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
+import { UserRoleModule } from './user-role/user-role.module';
+import { AdminRoleModule } from './admin-role/admin-role.module';
+
+
+registerLocaleData(localeEs,'es');
 
 @NgModule({
   declarations: [
@@ -20,11 +23,12 @@ import { ParticipationModule } from './participation/participation.module';
     BrowserAnimationsModule,
     CoreModule,
     LoginModule,
-    ChallengeModule,
-    UsersModule,
-    ParticipationModule,
-  ],  
-  bootstrap: [AppComponent],
-  
+    UserRoleModule,
+    AdminRoleModule,
+  ],
+  providers: [
+    DatePipe
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
