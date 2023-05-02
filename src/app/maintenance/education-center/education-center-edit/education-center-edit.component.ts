@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { Province } from 'src/app/core/models/Province';
@@ -19,7 +19,7 @@ export class EducationCenterEditComponent implements OnInit {
   provinces :  Province[];
   selectedProvince:Province;
   types : any[];
-  educationCenterForm : FormGroup;
+  educationCenterForm : UntypedFormGroup;
   isNew :boolean;
   
   constructor(
