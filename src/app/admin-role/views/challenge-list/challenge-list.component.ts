@@ -13,9 +13,7 @@ import { ViewEncapsulation } from '@angular/core';
 
 export class ChallengeListComponent {
 
-  public challenges: Challenge[]; 
-  public name: string;
-  public challenge: Challenge; 
+  public challenges: Challenge[];
 
   statusChallenges = ['active-card', 'finished-card', 'pending-card']; 
 

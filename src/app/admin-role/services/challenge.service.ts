@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Challenge } from 'src/app/core/models/Challenge';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,6 @@ export class ChallengeService {
   ) { }
 
   getChallenges(): Observable<Challenge[]> {
-    return this.http.get<Challenge[]>('http://localhost:8080/challenge');
+    return this.http.get<Challenge[]>(environment.server + '/challenge');
   }
 }
