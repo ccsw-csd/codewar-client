@@ -1,1 +1,42 @@
-<p>challenge-list works!</p>
+    
+<div class="flex justify-content-between">
+    <h1>Gestión de retos</h1>
+    <p-button class="my-auto" label="Crear reto"></p-button>
+</div>
+
+<div *ngFor="let challenge of challenges">
+    <p-card class="card" styleClass="{{ statusChallenges[challenge.statusId - 1] }} mb-3">
+        <div class="flex justify-content-between">
+            <div class="flex flex-column">
+                <div class="mb-2">{{ challenge.name }} 
+                </div>
+                <div class="mt-2">
+                    <p-tag class="mr-2" icon="pi pi-clock" value="{{ challenge.endDate ? (challenge.endDate | date: 'dd MM yyyy') : 'Sin fecha'}}"></p-tag>
+                    <p-tag class="mr-2" icon="pi pi-sync" value="{{ challenge.tries ? '∞' : '1' }}"></p-tag>
+                </div>
+            </div>
+            <div class="flex align-items-center">
+                <div>
+                    <p-button class="ml-2" *ngIf="challenge.statusId == 3" icon="pi pi-trash" styleClass="p-button-rounded p-button-outlined"></p-button>
+                    <p-button class="ml-2" *ngIf="challenge.statusId == 3" icon="pi pi-check-circle" styleClass="p-button-rounded p-button-outlined"></p-button>
+                    <p-button class="ml-2" *ngIf="challenge.statusId == 1" icon="pi pi-ban" styleClass="p-button-rounded p-button-outlined"></p-button>
+                    <p-button class="ml-2" *ngIf="challenge.statusId == 3" icon="pi pi-pencil" styleClass="p-button-rounded p-button-outlined"></p-button>
+                    <p-button class="ml-2" *ngIf="challenge.statusId == 1 || challenge.statusId == 2" icon="pi pi-eye" styleClass="p-button-rounded p-button-outlined"></p-button>
+                </div>
+            </div>
+        </div>
+    </p-card>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
