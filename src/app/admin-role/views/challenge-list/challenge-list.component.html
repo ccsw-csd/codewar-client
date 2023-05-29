@@ -1,7 +1,7 @@
     
 <div class="flex justify-content-between">
     <h1>Gestión de retos</h1>
-    <p-button class="my-auto" label="Crear reto"></p-button>
+    <p-button class="my-auto" (click)="editChallenge(challenges[0].id)" label="Crear reto"></p-button>
 </div>
 
 <div *ngFor="let challenge of challenges">
@@ -20,23 +20,10 @@
                     <p-button class="ml-2" *ngIf="challenge.statusId == 3" icon="pi pi-trash" styleClass="p-button-rounded p-button-outlined"></p-button>
                     <p-button class="ml-2" *ngIf="challenge.statusId == 3" icon="pi pi-check-circle" styleClass="p-button-rounded p-button-outlined"></p-button>
                     <p-button class="ml-2" *ngIf="challenge.statusId == 1" icon="pi pi-ban" styleClass="p-button-rounded p-button-outlined"></p-button>
-                    <p-button class="ml-2" *ngIf="challenge.statusId == 3" icon="pi pi-pencil" styleClass="p-button-rounded p-button-outlined"></p-button>
+                    <p-button class="ml-2" (click)="editChallenge(challenge.id)" *ngIf="challenge.statusId == 3" icon="pi pi-pencil" styleClass="p-button-rounded p-button-outlined"></p-button>
                     <p-button class="ml-2" *ngIf="challenge.statusId == 1 || challenge.statusId == 2" icon="pi pi-eye" styleClass="p-button-rounded p-button-outlined"></p-button>
                 </div>
             </div>
         </div>
     </p-card>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
