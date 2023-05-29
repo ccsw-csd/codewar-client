@@ -30,7 +30,7 @@ export class ChallengeListComponent {
     );
   }
 
-  editChallenge(challengeId: number) {
-    this.router.navigate(['challenge-list', challengeId]);
+  editChallenge() {
+    this.router.navigate(['admin/challenge-edit/' ]);
   }
 }

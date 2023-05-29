@@ -19,7 +19,8 @@ const routes: Routes = [
     children: [
       { path: 'dashboard', component: DashboardComponent, data:{role:['USER']}},
       { path: 'admin/challenge-list', component: ChallengeListComponent},
-      { path: 'challenge-list/:id', component: ChallengeEditComponent},
+      { path: 'admin/challenge-edit/:id', component: ChallengeEditComponent},
+      { path: 'admin/challenge-edit/', component: ChallengeEditComponent},
       { path: '**', redirectTo: 'dashboard', pathMatch: 'full' },
     ]
   },  
