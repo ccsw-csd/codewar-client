@@ -5,6 +5,8 @@ import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { TagModule } from 'primeng/tag';
 import { TabViewModule } from 'primeng/tabview';
+import { FormsModule } from '@angular/forms';
+import { InputTextModule } from 'primeng/inputtext';
 import { ChallengeEditComponent } from './views/challenge-edit/challenge-edit.component';
 
 @NgModule({
@@ -18,6 +20,8 @@ import { ChallengeEditComponent } from './views/challenge-edit/challenge-edit.co
     ButtonModule,
     TagModule,
     TabViewModule,
+    FormsModule,
+    InputTextModule,
   ]
 })
 export class AdminRoleModule { }

@@ -12,7 +12,16 @@
 <div>
     <p-tabView>
         <p-tabPanel header="General">
-
+            <div class="w-full flex flex-row pb-4">
+                <div class="flex flex-1 flex-column gap-2">
+                    <div class="flex flex-row gap-4">
+                        <span class="p-float-label">
+                            <input pInputText [(ngModel)]="challenge.name" formControlName="name" field="field" class="w-full">
+                            <label>Nombre del reto*</label>
+                        </span>
+                    </div>
+                </div>
+            </div>
         </p-tabPanel>
         <p-tabPanel header="Código">
 
