@@ -20,7 +20,7 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent, data:{role:['USER']}},
       { path: 'admin/challenge-list', component: ChallengeListComponent},
       { path: 'admin/challenge-edit/:id', component: ChallengeEditComponent},
-      { path: 'admin/challenge-edit/', component: ChallengeEditComponent},
+      { path: 'admin/challenge-edit', component: ChallengeEditComponent},
       { path: '**', redirectTo: 'dashboard', pathMatch: 'full' },
     ]
   },  
