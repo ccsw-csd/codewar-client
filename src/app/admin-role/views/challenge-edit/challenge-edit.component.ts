@@ -13,15 +13,18 @@ export class ChallengeEditComponent implements OnInit {
   public challenge: Challenge;
 
   constructor(private router: Router,
-    private challengeService: ChallengeService, 
+    private challengeService: ChallengeService,
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(param => {
       const challengeId = param['id'];
-      this.challengeService.getChallengeById(challengeId).subscribe(
-        challenge => this.challenge = challenge
-      );
+
+      if (challengeId !== undefined) {
+        this.challengeService.getChallengeById(challengeId).subscribe(
+          challenge => this.challenge = challenge
+        );
+      }
     });
   }
 
