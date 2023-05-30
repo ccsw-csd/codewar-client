@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Challenge } from 'src/app/core/models/Challenge';
 import { ChallengeService } from '../../services/challenge.service';
 import { ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -19,6 +20,7 @@ export class ChallengeListComponent {
 
   constructor(
     private challengeService: ChallengeService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -26,5 +28,13 @@ export class ChallengeListComponent {
     this.challengeService.getChallenges().subscribe(
         challenges => this.challenges = challenges
     );
+  }
+
+  editChallenge(id: number) {
+    if(id){
+      this.router.navigate(['admin/challenge-edit/' + id]);
+    }else{
+      this.router.navigate(['admin/challenge-edit' ]);
+    }
   }
 }

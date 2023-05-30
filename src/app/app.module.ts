@@ -8,7 +8,7 @@ import { LoginModule } from './login/login.module';
 import { DatePipe, registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
 import { UserRoleModule } from './user-role/user-role.module';
-import { AdminRoleModule } from './admin-role/admin-role.module';
+import { AdminRoleModule } from './admin-role/admin-role.module'; 
 import { CardModule } from 'primeng/card';
 
 
