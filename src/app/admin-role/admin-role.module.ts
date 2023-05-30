@@ -4,16 +4,20 @@ import { ChallengeListComponent } from './views/challenge-list/challenge-list.co
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { TagModule } from 'primeng/tag';
+import { TabViewModule } from 'primeng/tabview';
+import { ChallengeEditComponent } from './views/challenge-edit/challenge-edit.component';
 
 @NgModule({
   declarations: [
-    ChallengeListComponent
+    ChallengeListComponent,
+    ChallengeEditComponent
   ],
   imports: [
     CommonModule,
     CardModule,
     ButtonModule,
     TagModule,
+    TabViewModule,
   ]
 })
 export class AdminRoleModule { }
