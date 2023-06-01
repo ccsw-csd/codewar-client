@@ -1,13 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ChallengeListComponent } from './views/challenge-list/challenge-list.component';
+import { ChallengeEditComponent } from './views/challenge-edit/challenge-edit.component';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { TagModule } from 'primeng/tag';
 import { TabViewModule } from 'primeng/tabview';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
-import { ChallengeEditComponent } from './views/challenge-edit/challenge-edit.component';
+import { CheckboxModule } from 'primeng/checkbox';
+import { DropdownModule } from 'primeng/dropdown';
+import { ListboxModule } from 'primeng/listbox';
+import { TableModule } from 'primeng/table';
+import { EditorModule } from 'primeng/editor';
+
 
 @NgModule({
   declarations: [
@@ -22,6 +28,12 @@ import { ChallengeEditComponent } from './views/challenge-edit/challenge-edit.co
     TabViewModule,
     FormsModule,
     InputTextModule,
+    ReactiveFormsModule,
+    CheckboxModule,
+    DropdownModule,
+    ListboxModule,
+    TableModule,
+    EditorModule
   ]
 })
 export class AdminRoleModule { }
