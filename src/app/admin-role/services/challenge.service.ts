@@ -3,6 +3,9 @@ import { Observable } from 'rxjs';
 import { Challenge } from 'src/app/core/models/Challenge';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Tag } from 'src/app/core/models/Tag';
+import { ChallengeEdit } from 'src/app/core/models/ChallengeEdit';
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +20,11 @@ export class ChallengeService {
     return this.http.get<Challenge[]>(environment.server + '/challenge');
   }
 
-  getChallengeById(id: number): Observable<Challenge> {
-    return this.http.get<Challenge>(environment.server + '/challenge/' + id);
+  getChallengeById(id: number): Observable<ChallengeEdit> {
+    return this.http.get<ChallengeEdit>(environment.server + '/challenge/' + id);
+  }
+
+  getAllTags(): Observable<Tag[]>{
+    return this.http.get<Tag[]>(environment.server + '/tag');
   }
 }
