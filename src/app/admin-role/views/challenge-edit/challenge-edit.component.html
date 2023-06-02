@@ -13,17 +13,16 @@
     <p-tabView>
         <p-tabPanel header="General">
             <div class="flex flex-row">
-                <div class="flex flex-column gap-2 col-md-4">
-                    <div [formGroup]="filterForm" class="flex flex-row gap-2">
-                        <span class="p-float-label">
-                            <input pInputText [(ngModel)]="challenge.name" formControlName="name" field="field" required
-                                class="w-full">
+                <div class="flex flex-column gap-2" style="flex:1;">
+                    <div [formGroup]="filterForm" class="flex flex-row">
+                        <span class="p-float-label flex flex-1">
+                            <input pInputText [(ngModel)]="challenge.name" formControlName="name" field="field" required [style]="{width: '89%'}">
                             <label>Nombre del reto*</label>
                         </span>
                     </div>
             
                     <div>
-                        <span class="p-float-label w-11rem">
+                        <span class="p-float-label w-25rem">
                             <p-dropdown [options]="listTags" optionLabel="name" appendTo="body" [showClear]="true"
                                 formControlName="name" [style]="{width:'100%'}"
                                 (onChange)="onChangeTag($event)"></p-dropdown>
@@ -49,8 +48,8 @@
                     </span>
                 </div>
             
-                <div class="flex flex-column gap-2 col-md-8">
-                    <p-editor [(ngModel)]="challengeEdit.description"  [style]="{ height: '320px' }"></p-editor>
+                <div style="flex:2;">
+                    <p-editor [(ngModel)]="challengeEdit.description"  [style]="{ height: '380px'}"></p-editor>
                 </div>
             </div>
         </p-tabPanel>
