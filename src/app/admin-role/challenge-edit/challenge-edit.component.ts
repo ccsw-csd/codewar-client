@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ChallengeService } from '../services/challenge.service';
 import { Challenge } from 'src/app/core/models/Challenge';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Tag } from 'src/app/core/models/Tag';
 import { ChallengeEdit } from 'src/app/core/models/ChallengeEdit';
 
@@ -31,17 +31,19 @@ export class ChallengeEditComponent implements OnInit {
 
       if (challengeId !== undefined) {
         this.challengeService.getChallengeById(challengeId).subscribe(
-          challenge => this.challenge = challenge
+          challenge => this.challengeEdit = challenge
         );
       }
     });
 
     this.filterForm = this.formBuilder.group({
-      name: [''],
+      name: ['', Validators.required],
       createdDate: [''],
       endDate: [''],
       tries: [''],
-      statusId: ['']
+      statusId: [''],
+      className: ['', Validators.required],
+      functionName: ['', Validators.required],
     });
   }
 
