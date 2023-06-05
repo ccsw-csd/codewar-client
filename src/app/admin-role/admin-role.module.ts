@@ -14,6 +14,7 @@ import { ListboxModule } from 'primeng/listbox';
 import { TableModule } from 'primeng/table';
 import { EditorModule } from 'primeng/editor';
 import { GeneralComponent } from './views/general/general.component';
+import { CodeComponent } from './views/code/code.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { GeneralComponent } from './views/general/general.component';
     ChallengeListComponent,
     ChallengeEditComponent,
     GeneralComponent,
+    CodeComponent,
     
   ],
   imports: [

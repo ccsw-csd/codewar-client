@@ -12,14 +12,10 @@
 <div>
     <p-tabView>
         <p-tabPanel header="General">
-                <app-general [challenge]="challenge" [filterForm]="filterForm" [tags]="tags" [challengeEdit]="challengeEdit"> </app-general>
+                <app-general [challenge]="challengeEdit" [filterForm]="filterForm" [tags]="tags" [challengeEdit]="challengeEdit"> </app-general>
         </p-tabPanel>
         <p-tabPanel header="Código">
-            <div class="flex flex-row">
-                <div class="flex flex-column gap-2">
-
-                </div>
-            </div>
+            <app-code [challenge]="challenge"></app-code>
         </p-tabPanel>
         <p-tabPanel header="Pruebas">
 

@@ -5,4 +5,6 @@ export class Challenge {
     endDate?: Date;
     tries: boolean;
     statusId: number;
+    className: string;
+    functionName: string;
 }
