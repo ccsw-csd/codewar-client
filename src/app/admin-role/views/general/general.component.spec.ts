@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChallengeEditComponent } from './challenge-edit.component';
+import { GeneralComponent } from './general.component';
 
-describe('ChallengeEditComponent', () => {
-  let component: ChallengeEditComponent;
-  let fixture: ComponentFixture<ChallengeEditComponent>;
+describe('GeneralComponent', () => {
+  let component: GeneralComponent;
+  let fixture: ComponentFixture<GeneralComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ChallengeEditComponent ]
+      declarations: [ GeneralComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ChallengeEditComponent);
+    fixture = TestBed.createComponent(GeneralComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

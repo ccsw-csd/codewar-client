@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ChallengeListComponent } from './views/challenge-list/challenge-list.component';
-import { ChallengeEditComponent } from './views/challenge-edit/challenge-edit.component';
+import { ChallengeListComponent } from './challenge-list/challenge-list.component';
+import { ChallengeEditComponent } from './challenge-edit/challenge-edit.component';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { TagModule } from 'primeng/tag';
@@ -13,12 +13,15 @@ import { DropdownModule } from 'primeng/dropdown';
 import { ListboxModule } from 'primeng/listbox';
 import { TableModule } from 'primeng/table';
 import { EditorModule } from 'primeng/editor';
+import { GeneralComponent } from './views/general/general.component';
 
 
 @NgModule({
   declarations: [
     ChallengeListComponent,
-    ChallengeEditComponent
+    ChallengeEditComponent,
+    GeneralComponent,
+    
   ],
   imports: [
     CommonModule,
