@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { Challenge } from 'src/app/core/models/Challenge';
-import { ChallengeService } from '../../services/challenge.service';
+
 import { ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
+import { ChallengeService } from '../services/challenge.service';
 
 
 @Component({

@@ -1,0 +1,28 @@
+<div class="flex justify-content-between">
+    <div>
+        <h1>Edición del Reto</h1>
+    </div>
+    <div class="align-self-center flex flex-row">
+        <p-button class="mr-2" (click)="goBack()" label="Volver"
+            styleClass="p-button-outlined p-button-primary"></p-button>
+        <p-button class="mr-2" label="Guardar" styleClass="p-button-primary"></p-button>
+    </div>
+</div>
+
+<div>
+    <p-tabView>
+        <p-tabPanel header="General">
+                <app-general [challenge]="challenge" [filterForm]="filterForm" [tags]="tags" [challengeEdit]="challengeEdit"> </app-general>
+        </p-tabPanel>
+        <p-tabPanel header="Código">
+            <div class="flex flex-row">
+                <div class="flex flex-column gap-2">
+
+                </div>
+            </div>
+        </p-tabPanel>
+        <p-tabPanel header="Pruebas">
+
+        </p-tabPanel>
+    </p-tabView>
+</div>
