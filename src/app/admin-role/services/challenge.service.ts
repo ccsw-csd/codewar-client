@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Tag } from 'src/app/core/models/Tag';
 import { ChallengeEdit } from 'src/app/core/models/ChallengeEdit';
+import { ParameterType } from 'src/app/core/models/ParameterType';
 
 
 @Injectable({
@@ -27,4 +28,9 @@ export class ChallengeService {
   getAllTags(): Observable<Tag[]>{
     return this.http.get<Tag[]>(environment.server + '/tag');
   }
+
+  getParameterTypes(): Observable<ParameterType[]>{
+    return this.http.get<ParameterType[]>(environment.server + '/parameter_type');
+  }
+
 }

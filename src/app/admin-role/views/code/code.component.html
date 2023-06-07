@@ -13,5 +13,42 @@
             </span>
         </div>
 
+        <div class="mt-3">
+            <h3>Parámetro de retorno</h3>
+            <span class="p-float-label flex flex-1">
+                <p-dropdown [options]="listParameters" optionLabel="name" appendTo="body" [showClear]="true">
+                </p-dropdown>
+                <label>Tipo*</label>
+            </span>
+        </div>
+
+        <div class="mt-3">
+            <h3>Parámetros de entrada</h3>
+            <ng-container *ngFor="let parameter of challengeEdit?.challengeParameter">
+              <ng-container *ngIf="parameter.isInput">
+                <span class="p-float-label flex flex-1">
+                  <p-dropdown [(ngModel)]="parameter.parameterTypeId" [options]="listParameters" optionLabel="name" appendTo="body" [showClear]="true" >
+                  </p-dropdown>
+                  <label>Tipo*</label>
+                </span>
+          
+                <div>
+                  <span class="p-float-label flex flex-1">
+                    <input pInputText [(ngModel)]="parameter.name" field="field" required>
+                    <label>Nombre*</label>
+                  </span>
+                </div>
+              </ng-container>
+          
+              <button *ngIf="parameter === parameters[parameters.length - 1]" (click)="deleteParameter(parameter)">
+                Borrar
+              </button>
+              <button *ngIf="parameter === parameters[parameters.length - 1]" (click)="addParameter()">
+                Más
+              </button>
+            </ng-container>
+          </div>
+          
+
     </div>
 </div>

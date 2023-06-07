@@ -1,3 +1,5 @@
+import { ChallengeParameter } from './ChallengeParameter';
+
 export class ChallengeEdit {
     id: number;
     name: string;
@@ -6,4 +8,5 @@ export class ChallengeEdit {
     tries: boolean;
     statusId: number;
     description: string;
+    challengeParameter: ChallengeParameter[];
 }
