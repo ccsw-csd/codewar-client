@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 import { Challenge } from 'src/app/core/models/Challenge';
 import { ChallengeEdit } from 'src/app/core/models/ChallengeEdit';
 import { ChallengeService } from '../../services/challenge.service';
@@ -23,6 +22,7 @@ export class CodeComponent implements OnInit{
 
   ngOnInit(): void {
     this.getParameterTypes();
+    this.parameters = this.challengeEdit?.challengeParameter ?? [];
   }
 
   getParameterTypes() {
@@ -35,19 +35,27 @@ export class CodeComponent implements OnInit{
     });
   }
     
-  deleteParameter(parameter: ChallengeParameter) {
-    this.parameters = this.parameters.filter(p => p !== parameter);
-  }
-  
   addParameter() {
     const newParameter: ChallengeParameter = {
-      id: this.parameters.length + 1,
-      name: '',
-      parameterTypeId: 0,
-      order: this.parameters.length + 1,
-      isInput: true
+      id: 0,
+      name: "",
+      parameterType: null,
+      order: this.challengeEdit.challengeParameter.length + 1,
+      isInput: true,
     };
-    this.parameters.push(newParameter);
+    this.challengeEdit.challengeParameter.push(newParameter);
   }
+
+  deleteParameter(parameter: ChallengeParameter) {
+    if (this.challengeEdit.challengeParameter.length === 1) {
+      return;
+    }
+
+    const index = this.challengeEdit.challengeParameter.indexOf(parameter);
+    if (index > -1) {
+      this.challengeEdit.challengeParameter.splice(index, 1);
+    }
+  }
+ 
   
 }

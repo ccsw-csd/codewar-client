@@ -1,7 +1,9 @@
+import { ParameterType } from "./ParameterType";
+
 export class ChallengeParameter {
     id: number;
     name: string;
-    parameterTypeId: number;
+    parameterType: ParameterType;
     order: number;
     isInput: boolean;
 }
