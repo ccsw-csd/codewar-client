@@ -10,22 +10,22 @@
 
         <div>
             <p-panel class="no-header">
-            <p-dropdown #dropdownTags placeholder="Selecciona un tag" [options]="listTags" optionLabel="name" appendTo="body" [style]="{width:'100%'}" (onChange)="onChangeTag($event);"></p-dropdown>
+                <p-dropdown class="mt-2" #dropdownTags placeholder="Selecciona un tag" [options]="listTags" optionLabel="name" [style]="{width:'100%', margin: '10 0 0 0'}" (onChange)="onChangeTag($event);"></p-dropdown>
 
-            <p-table [value]="selectedTags" [style]="{width:'100%', height: '200px'}" [autoLayout]="true">
-                <ng-template pTemplate="header">
+                <p-table [value]="selectedTags" [style]="{width:'100%', height: '200px'}" [autoLayout]="true">
+                    <ng-template pTemplate="header">
 
-                </ng-template>
-                <ng-template pTemplate="body" let-tag>
-                    <tr>
-                        <td>{{ tag.name }}</td>
-                        <td>
-                            <button pButton icon="pi pi-trash" (click)="removeTag(tag)"></button>
-                        </td>
-                    </tr>
-                </ng-template>
-            </p-table>
-        </p-panel>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-tag>
+                        <tr>
+                            <td>{{ tag.name }}</td>
+                            <td>
+                                <button pButton icon="pi pi-trash" (click)="removeTag(tag)"></button>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </p-panel>
         </div>
 
         <span class="field-checkbox">

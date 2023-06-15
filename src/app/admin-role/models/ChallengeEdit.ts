@@ -1,5 +1,6 @@
 import { ChallengeParameter } from './ChallengeParameter';
 import { Status } from '../../core/models/Status';
+import { Tag } from 'src/app/core/models/Tag';
 
 export class ChallengeEdit {
     id: number;
@@ -9,7 +10,8 @@ export class ChallengeEdit {
     tries: boolean;
     status: Status;
     description: string;
-    challengeParameter: ChallengeParameter[];
     className: string;
     functionName: string;
+    challengeParameters: ChallengeParameter[];
+    tags: Tag[];
 }

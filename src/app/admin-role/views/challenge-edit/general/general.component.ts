@@ -17,10 +17,13 @@ export class GeneralComponent implements OnInit{
   @ViewChild('dropdownTags') dropdownTags: Dropdown;
   @Input() challenge: ChallengeEdit;
 
-  constructor(private challengeService: ChallengeService) { }
+  constructor(private challengeService: ChallengeService) { 
 
+  }
+  
   ngOnInit(): void {
     this.getAllTags();
+    this.selectedTags = this.challenge.tags;
   }
 
   getAllTags(){

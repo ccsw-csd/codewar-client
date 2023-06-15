@@ -1,3 +1,4 @@
+import { Tag } from 'src/app/core/models/Tag';
 import { Status } from '../../core/models/Status';
 
 export class Challenge {
@@ -7,4 +8,5 @@ export class Challenge {
     endDate?: Date;
     tries: boolean;
     status: Status;
+    tags: Tag[];
 } 

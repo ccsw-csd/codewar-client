@@ -21,7 +21,7 @@ export class CodeComponent implements OnInit{
 
   ngOnInit(): void {
     this.getParameterTypes();
-    this.parameters = this.challenge?.challengeParameter ?? [];
+    this.parameters = this.challenge?.challengeParameters ?? [];
   }
 
   getParameterTypes() {
@@ -39,20 +39,20 @@ export class CodeComponent implements OnInit{
       id: 0,
       name: "",
       parameterType: null,
-      order: this.challenge.challengeParameter.length + 1,
+      order: this.challenge.challengeParameters.length + 1,
       isInput: true,
     };
-    this.challenge.challengeParameter.push(newParameter);
+    this.challenge.challengeParameters.push(newParameter);
   }
 
   deleteParameter(parameter: ChallengeParameter) {
-    if (this.challenge.challengeParameter.length === 1) {
+    if (this.challenge.challengeParameters.length === 1) {
       return;
     }
 
-    const index = this.challenge.challengeParameter.indexOf(parameter);
+    const index = this.challenge.challengeParameters.indexOf(parameter);
     if (index > -1) {
-      this.challenge.challengeParameter.splice(index, 1);
+      this.challenge.challengeParameters.splice(index, 1);
     }
   }
  
