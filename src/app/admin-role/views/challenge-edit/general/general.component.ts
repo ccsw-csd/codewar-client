@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Challenge } from 'src/app/core/models/Challenge';
+import { Challenge } from 'src/app/admin-role/models/Challenge';
 import { Tag } from 'src/app/core/models/Tag';
-import { ChallengeService } from '../../services/challenge.service';
-import { ChallengeEdit } from 'src/app/core/models/ChallengeEdit';
+import { ChallengeService } from '../../../services/challenge.service';
+import { ChallengeEdit } from 'src/app/admin-role/models/ChallengeEdit';
 
 @Component({
   selector: 'app-general',

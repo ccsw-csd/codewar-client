@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ChallengeService } from '../services/challenge.service';
-import { Challenge } from 'src/app/core/models/Challenge';
+import { Challenge } from 'src/app/admin-role/models/Challenge';
+import { ChallengeEdit } from 'src/app/admin-role/models/ChallengeEdit';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Tag } from 'src/app/core/models/Tag';
-import { ChallengeEdit } from 'src/app/core/models/ChallengeEdit';
+import { ChallengeService } from '../../services/challenge.service';
 
 @Component({
   selector: 'app-challenge-edit',

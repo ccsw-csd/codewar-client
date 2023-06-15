@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { Challenge } from 'src/app/core/models/Challenge';
+import { Component, OnInit } from '@angular/core';
+import { Challenge } from 'src/app/admin-role/models/Challenge';
 
 import { ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
-import { ChallengeService } from '../services/challenge.service';
+import { ChallengeService } from '../../services/challenge.service';
 
 
 @Component({
@@ -12,8 +12,7 @@ import { ChallengeService } from '../services/challenge.service';
   styleUrls: ['./challenge-list.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-
-export class ChallengeListComponent {
+export class ChallengeListComponent implements OnInit {
 
   public challenges: Challenge[];
 

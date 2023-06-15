@@ -5,8 +5,8 @@ import { RefreshTokenResolverService } from './core/services/refresh-token-resol
 import { LayoutComponent } from './core/views/layout/layout.component';
 import { LoginComponent } from './login/views/login/login.component';
 import { DashboardComponent } from './user-role/views/dashboard/dashboard.component';
-import { ChallengeListComponent } from './admin-role/challenge-list/challenge-list.component';
-import { ChallengeEditComponent } from './admin-role/challenge-edit/challenge-edit.component';
+import { ChallengeListComponent } from './admin-role/views/challenge-list/challenge-list.component';
+import { ChallengeEditComponent } from './admin-role/views/challenge-edit/challenge-edit.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },

@@ -1,4 +1,4 @@
-import { ParameterType } from "./ParameterType";
+import { ParameterType } from "src/app/core/models/ParameterType";
 
 export class ChallengeParameter {
     id: number;

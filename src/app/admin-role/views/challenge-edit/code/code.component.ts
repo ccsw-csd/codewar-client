@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Challenge } from 'src/app/core/models/Challenge';
-import { ChallengeEdit } from 'src/app/core/models/ChallengeEdit';
-import { ChallengeService } from '../../services/challenge.service';
+import { Challenge } from 'src/app/admin-role/models/Challenge';
+import { ChallengeEdit } from 'src/app/admin-role/models/ChallengeEdit';
+import { ChallengeService } from '../../../services/challenge.service';
 import { ParameterType } from 'src/app/core/models/ParameterType';
-import { ChallengeParameter } from 'src/app/core/models/ChallengeParameter';
+import { ChallengeParameter } from 'src/app/admin-role/models/ChallengeParameter';
 
 @Component({
   selector: 'app-code',
