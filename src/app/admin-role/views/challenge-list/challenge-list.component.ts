@@ -16,12 +16,18 @@ export class ChallengeListComponent implements OnInit {
 
   public challenges: Challenge[];
 
-  statusChallenges = ['active-card', 'finished-card', 'pending-card']; 
+  statusChallenges = []; 
 
   constructor(
     private challengeService: ChallengeService,
     private router: Router,
-  ) { }
+  ) {
+
+    this.statusChallenges['ACT']= 'active-card';
+    this.statusChallenges['CLO']= 'finished-card';
+    this.statusChallenges['PND']= 'pending-card';
+
+   }
 
   ngOnInit(): void {
 

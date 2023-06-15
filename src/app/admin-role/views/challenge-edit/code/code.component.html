@@ -25,7 +25,7 @@
     <div class="flex flex-1 flex-column gap-2">
       <h3>Parámetros de entrada</h3>
       <div class="flex flex-column gap-4">
-        <ng-container *ngFor="let parameter of challengeEdit?.challengeParameter">
+        <ng-container *ngFor="let parameter of challenge?.challengeParameter">
           <ng-container *ngIf="parameter.isInput">
             <div class="flex flex-row gap-3">
               <span class="p-float-label flex flex-1 ">
@@ -43,8 +43,8 @@
             </div>
           </ng-container>
     
-          <div class="flex flex-row gap-3" *ngIf="parameter === challengeEdit?.challengeParameter[challengeEdit?.challengeParameter.length - 1]">
-            <button pButton icon="pi pi-minus-circle" (click)="deleteParameter(parameter)" [disabled]="challengeEdit?.challengeParameter.length === 1"></button>
+          <div class="flex flex-row gap-3" *ngIf="parameter === challenge?.challengeParameter[challenge?.challengeParameter.length - 1]">
+            <button pButton icon="pi pi-minus-circle" (click)="deleteParameter(parameter)" [disabled]="challenge?.challengeParameter.length === 1"></button>
             <button pButton icon="pi pi-plus-circle" (click)="addParameter()"></button>
           </div>          
         </ng-container>

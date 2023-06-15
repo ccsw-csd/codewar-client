@@ -5,7 +5,7 @@
 </div>
 
 <div class="flex flex-column gap-3" style="height: calc(100vh - 202px); overflow: auto;">
-    <p-card *ngFor="let challenge of challenges" styleClass="{{ statusChallenges[challenge.statusId - 1] }}">
+    <p-card *ngFor="let challenge of challenges" styleClass="{{ statusChallenges[challenge.status.code] }}">
         <div class="flex justify-content-between">
             <div class="flex flex-column gap-2">
                 <div>{{ challenge.name }}</div>
@@ -15,11 +15,11 @@
                 </div>
             </div>
             <div class="flex align-items-center gap-1">
-                <p-button *ngIf="challenge.statusId == 3" icon="pi pi-trash" styleClass="p-button-rounded p-button-outlined p-button-secondary"></p-button>
-                <p-button *ngIf="challenge.statusId == 3" icon="pi pi-check-circle" styleClass="p-button-rounded p-button-outlined p-button-secondary"></p-button>
-                <p-button *ngIf="challenge.statusId == 1" icon="pi pi-ban" styleClass="p-button-rounded p-button-outlined p-button-secondary"></p-button>
-                <p-button *ngIf="challenge.statusId == 3" (click)="editChallenge(challenge.id)" icon="pi pi-pencil" styleClass="p-button-rounded p-button-outlined"></p-button>
-                <p-button *ngIf="challenge.statusId == 1 || challenge.statusId == 2" icon="pi pi-eye" styleClass="p-button-rounded p-button-outlined"></p-button>
+                <p-button *ngIf="challenge.status.code == 'CLO'" icon="pi pi-trash" styleClass="p-button-rounded p-button-outlined p-button-secondary"></p-button>
+                <p-button *ngIf="challenge.status.code == 'CLO'" icon="pi pi-check-circle" styleClass="p-button-rounded p-button-outlined p-button-secondary"></p-button>
+                <p-button *ngIf="challenge.status.code == 'PND'" icon="pi pi-ban" styleClass="p-button-rounded p-button-outlined p-button-secondary"></p-button>
+                <p-button *ngIf="challenge.status.code == 'CLO'" (click)="editChallenge(challenge.id)" icon="pi pi-pencil" styleClass="p-button-rounded p-button-outlined"></p-button>
+                <p-button *ngIf="challenge.status.code == 'PND' || challenge.status.code == 'ACT'" icon="pi pi-eye" styleClass="p-button-rounded p-button-outlined"></p-button>
             </div>
         </div>
     </p-card>

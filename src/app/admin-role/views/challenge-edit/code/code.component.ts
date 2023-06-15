@@ -15,14 +15,13 @@ export class CodeComponent implements OnInit{
   listParameters: ParameterType[] = [];
   parameters: ChallengeParameter[] = [];
 
-  @Input() challenge: Challenge;
-  @Input() challengeEdit: ChallengeEdit;
+  @Input() challenge: ChallengeEdit;
 
   constructor(private challengeService: ChallengeService) { }
 
   ngOnInit(): void {
     this.getParameterTypes();
-    this.parameters = this.challengeEdit?.challengeParameter ?? [];
+    this.parameters = this.challenge?.challengeParameter ?? [];
   }
 
   getParameterTypes() {
@@ -40,20 +39,20 @@ export class CodeComponent implements OnInit{
       id: 0,
       name: "",
       parameterType: null,
-      order: this.challengeEdit.challengeParameter.length + 1,
+      order: this.challenge.challengeParameter.length + 1,
       isInput: true,
     };
-    this.challengeEdit.challengeParameter.push(newParameter);
+    this.challenge.challengeParameter.push(newParameter);
   }
 
   deleteParameter(parameter: ChallengeParameter) {
-    if (this.challengeEdit.challengeParameter.length === 1) {
+    if (this.challenge.challengeParameter.length === 1) {
       return;
     }
 
-    const index = this.challengeEdit.challengeParameter.indexOf(parameter);
+    const index = this.challenge.challengeParameter.indexOf(parameter);
     if (index > -1) {
-      this.challengeEdit.challengeParameter.splice(index, 1);
+      this.challenge.challengeParameter.splice(index, 1);
     }
   }
  

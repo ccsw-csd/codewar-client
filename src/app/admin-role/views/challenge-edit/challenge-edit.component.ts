@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Challenge } from 'src/app/admin-role/models/Challenge';
 import { ChallengeEdit } from 'src/app/admin-role/models/ChallengeEdit';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Tag } from 'src/app/core/models/Tag';
+import { FormBuilder } from '@angular/forms';
 import { ChallengeService } from '../../services/challenge.service';
 
 @Component({
@@ -13,12 +11,7 @@ import { ChallengeService } from '../../services/challenge.service';
 })
 export class ChallengeEditComponent implements OnInit {
 
-  challenge: Challenge = new Challenge()
-  filterForm: FormGroup;
-  tags: Tag = new Tag();
-  listTags: Tag[] = [];
-  selectedTags: Tag[] = [];
-  challengeEdit: ChallengeEdit = new ChallengeEdit();
+  challenge: ChallengeEdit = new ChallengeEdit();
 
   constructor(private router: Router,
     private challengeService: ChallengeService,
@@ -31,19 +24,9 @@ export class ChallengeEditComponent implements OnInit {
 
       if (challengeId !== undefined) {
         this.challengeService.getChallengeById(challengeId).subscribe(
-          challenge => this.challengeEdit = challenge
+          challenge => this.challenge = challenge
         );
       }
-    });
-
-    this.filterForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      createdDate: [''],
-      endDate: [''],
-      tries: [''],
-      statusId: [''],
-      className: ['', Validators.required],
-      functionName: ['', Validators.required],
     });
   }
 

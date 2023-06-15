@@ -1,9 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { Challenge } from 'src/app/admin-role/models/Challenge';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Tag } from 'src/app/core/models/Tag';
 import { ChallengeService } from '../../../services/challenge.service';
 import { ChallengeEdit } from 'src/app/admin-role/models/ChallengeEdit';
+import { Dropdown } from 'primeng/dropdown';
 
 @Component({
   selector: 'app-general',
@@ -15,10 +14,8 @@ export class GeneralComponent implements OnInit{
   listTags: Tag[] = [];
   selectedTags: Tag[] = [];
 
-  @Input() challenge: Challenge;
-  @Input() filterForm: FormGroup;
-  @Input() tags: Tag;
-  @Input() challengeEdit: ChallengeEdit;
+  @ViewChild('dropdownTags') dropdownTags: Dropdown;
+  @Input() challenge: ChallengeEdit;
 
   constructor(private challengeService: ChallengeService) { }
 
@@ -41,6 +38,8 @@ export class GeneralComponent implements OnInit{
     if (selectedTag && !this.selectedTags.includes(selectedTag)) {
       this.selectedTags.push(selectedTag);
     }
+
+    this.dropdownTags.updateSelectedOption(null);
   }
 
   removeTag(tag: Tag) {

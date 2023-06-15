@@ -1,4 +1,5 @@
 import { ChallengeParameter } from './ChallengeParameter';
+import { Status } from '../../core/models/Status';
 
 export class ChallengeEdit {
     id: number;
@@ -6,7 +7,9 @@ export class ChallengeEdit {
     createdDate: Date;
     endDate?: Date;
     tries: boolean;
-    statusId: number;
+    status: Status;
     description: string;
     challengeParameter: ChallengeParameter[];
+    className: string;
+    functionName: string;
 }
