@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
-import { Challenge } from 'src/app/core/models/Challenge';
-import { ChallengeService } from '../../services/challenge.service';
+import { Component, OnInit } from '@angular/core';
+import { Challenge } from 'src/app/admin-role/models/Challenge';
+
 import { ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
+import { ChallengeService } from '../../services/challenge.service';
 
 
 @Component({
@@ -11,17 +12,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./challenge-list.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-
-export class ChallengeListComponent {
+export class ChallengeListComponent implements OnInit {
 
   public challenges: Challenge[];
 
-  statusChallenges = ['active-card', 'finished-card', 'pending-card']; 
+  statusChallenges = []; 
 
   constructor(
     private challengeService: ChallengeService,
     private router: Router,
-  ) { }
+  ) {
+
+    this.statusChallenges['ACT']= 'active-card';
+    this.statusChallenges['CLO']= 'finished-card';
+    this.statusChallenges['PND']= 'pending-card';
+
+   }
 
   ngOnInit(): void {
 

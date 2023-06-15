@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ChallengeListComponent } from './views/challenge-list/challenge-list.component';
-import { ChallengeEditComponent } from './views/challenge-edit/challenge-edit.component';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { TagModule } from 'primeng/tag';
@@ -13,12 +11,19 @@ import { DropdownModule } from 'primeng/dropdown';
 import { ListboxModule } from 'primeng/listbox';
 import { TableModule } from 'primeng/table';
 import { EditorModule } from 'primeng/editor';
-
+import { FieldsetModule } from 'primeng/fieldset';
+import { PanelModule } from 'primeng/panel';
+import { ChallengeListComponent } from './views/challenge-list/challenge-list.component';
+import { ChallengeEditComponent } from './views/challenge-edit/challenge-edit.component';
+import { GeneralComponent } from './views/challenge-edit/general/general.component';
+import { CodeComponent } from './views/challenge-edit/code/code.component';
 
 @NgModule({
   declarations: [
     ChallengeListComponent,
-    ChallengeEditComponent
+    ChallengeEditComponent,
+    GeneralComponent,
+    CodeComponent,    
   ],
   imports: [
     CommonModule,
@@ -33,7 +38,9 @@ import { EditorModule } from 'primeng/editor';
     DropdownModule,
     ListboxModule,
     TableModule,
-    EditorModule
+    EditorModule,
+    PanelModule,
+    FieldsetModule
   ]
 })
 export class AdminRoleModule { }
