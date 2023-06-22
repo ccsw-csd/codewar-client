@@ -11,5 +11,5 @@ export class Challenge {
     status: Status;
     tags: Tag[];
     person?: Person;
-    distinctUsername: number;
+    participationCount: number;
 } 

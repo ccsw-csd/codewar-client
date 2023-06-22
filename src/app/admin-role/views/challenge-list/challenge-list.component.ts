@@ -16,7 +16,6 @@ import { Tag } from 'primeng/tag';
 export class ChallengeListComponent implements OnInit {
 
   public challenges: Challenge[];
-  public tags: Tag[];
 
   statusChallenges = []; 
 
