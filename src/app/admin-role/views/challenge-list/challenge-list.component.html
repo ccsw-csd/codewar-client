@@ -10,8 +10,11 @@
             <div class="flex flex-column gap-2">
                 <div>{{ challenge.name }}</div>
                 <div class="flex flex-row gap-2">
+                    <p-tag value="{{ challenge.person ? challenge.person.name + ' ' + challenge.person.lastname : 'Desconocido' }}"></p-tag>
+                    <p-tag icon="pi pi-user" value="{{ challenge.participationCount }}"></p-tag>
                     <p-tag icon="pi pi-clock" value="{{ challenge.endDate ? (challenge.endDate | date: 'dd/MM/yyyy') : 'Sin fecha fin'}}"></p-tag>
                     <p-tag icon="pi pi-sync" value="{{ challenge.tries ? '∞' : '1' }}"></p-tag>
+                    <ng-container *ngFor="let tag of challenge.tags"><p-tag value= "{{ tag.name }}"></p-tag></ng-container>
                 </div>
             </div>
             <div class="flex align-items-center gap-1">
@@ -24,3 +27,4 @@
         </div>
     </p-card>
 </div>
+

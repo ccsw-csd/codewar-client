@@ -4,6 +4,7 @@ import { Challenge } from 'src/app/admin-role/models/Challenge';
 import { ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { ChallengeService } from '../../services/challenge.service';
+import { Tag } from 'primeng/tag';
 
 
 @Component({
@@ -32,9 +33,12 @@ export class ChallengeListComponent implements OnInit {
   ngOnInit(): void {
 
     this.challengeService.getChallenges().subscribe(
-        challenges => this.challenges = challenges
+      challenges => this.challenges = challenges
     );
   }
+
+
+  
 
   editChallenge(id: number) {
     if(id){

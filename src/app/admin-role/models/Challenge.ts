@@ -1,5 +1,6 @@
 import { Tag } from 'src/app/core/models/Tag';
 import { Status } from '../../core/models/Status';
+import { Person } from './Person';
 
 export class Challenge {
     id: number;
@@ -9,4 +10,6 @@ export class Challenge {
     tries: boolean;
     status: Status;
     tags: Tag[];
+    person?: Person;
+    participationCount: number;
 } 
