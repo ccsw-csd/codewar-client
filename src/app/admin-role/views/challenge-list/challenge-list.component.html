@@ -4,6 +4,10 @@
     <p-button class="my-auto" (click)="editChallenge(null)" label="Crear reto"></p-button>
 </div>
 
+<div class="flex">
+    <p-multiSelect [options]="statuses" [(ngModel)]="selectedStatuses" optionLabel="name" (onChange)="filterList()" display="chip" defaultLabel="Buscar por estado"></p-multiSelect>
+</div>
+
 <div class="flex flex-column gap-3" style="height: calc(100vh - 202px); overflow: auto;">
     <p-card *ngFor="let challenge of challenges" styleClass="{{ statusChallenges[challenge.status.code] }}">
         <div class="flex justify-content-between">
@@ -27,4 +31,3 @@
         </div>
     </p-card>
 </div>
-

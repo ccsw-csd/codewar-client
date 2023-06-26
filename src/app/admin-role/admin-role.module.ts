@@ -17,6 +17,7 @@ import { ChallengeListComponent } from './views/challenge-list/challenge-list.co
 import { ChallengeEditComponent } from './views/challenge-edit/challenge-edit.component';
 import { GeneralComponent } from './views/challenge-edit/general/general.component';
 import { CodeComponent } from './views/challenge-edit/code/code.component';
+import { MultiSelectModule } from 'primeng/multiselect';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { CodeComponent } from './views/challenge-edit/code/code.component';
     TableModule,
     EditorModule,
     PanelModule,
-    FieldsetModule
+    FieldsetModule,
+    MultiSelectModule
   ]
 })
 export class AdminRoleModule { }

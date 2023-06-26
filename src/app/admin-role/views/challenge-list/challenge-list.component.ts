@@ -5,6 +5,7 @@ import { ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { ChallengeService } from '../../services/challenge.service';
 import { Tag } from 'primeng/tag';
+import { Status } from 'src/app/core/models/Status';
 
 
 @Component({
@@ -15,9 +16,15 @@ import { Tag } from 'primeng/tag';
 })
 export class ChallengeListComponent implements OnInit {
 
-  public challenges: Challenge[];
+  originalChallenges: Challenge[];
+
+  challenges: Challenge[];
 
   statusChallenges = []; 
+
+  statuses: Status[];
+
+  selectedStatuses: Status[];
 
   constructor(
     private challengeService: ChallengeService,
@@ -28,16 +35,28 @@ export class ChallengeListComponent implements OnInit {
     this.statusChallenges['CLO']= 'finished-card';
     this.statusChallenges['PND']= 'pending-card';
 
-   }
+    }
 
   ngOnInit(): void {
 
     this.challengeService.getChallenges().subscribe(
-      challenges => this.challenges = challenges
+      challenges => {
+        this.challenges = challenges;
+        this.originalChallenges = challenges;
+      }
     );
+
+    this.statuses = [
+      { id: 1, name: 'Activo', code: 'ACT' },
+      { id: 2, name: 'Finalizado', code: 'CLO' },
+      { id: 3, name: 'Pendiente', code: 'PND' }
+    ];
   }
 
-
+  filterList(){
+    const codes: string[] = this.selectedStatuses.map((status: Status) => status.code);
+    this.challenges = this.originalChallenges.filter((challenge: Challenge) => codes.includes(challenge.status.code));
+  }
   
 
   editChallenge(id: number) {

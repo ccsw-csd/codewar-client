@@ -30,7 +30,7 @@ export class ChallengeEditComponent implements OnInit {
     });
   }
 
-    goBack() {
-      this.router.navigate(['admin/challenge-list']);
-    }
+  goBack() {
+    this.router.navigate(['admin/challenge-list']);
+  }
 }
