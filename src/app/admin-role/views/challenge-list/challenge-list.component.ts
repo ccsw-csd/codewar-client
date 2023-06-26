@@ -55,7 +55,13 @@ export class ChallengeListComponent implements OnInit {
 
   filterList(){
     const codes: string[] = this.selectedStatuses.map((status: Status) => status.code);
-    this.challenges = this.originalChallenges.filter((challenge: Challenge) => codes.includes(challenge.status.code));
+    if (codes.length){
+      this.challenges = this.originalChallenges.filter((challenge: Challenge) => codes.includes(challenge.status.code));
+    }
+    else
+    {
+      this.challenges = this.originalChallenges
+    }
   }
   
 
