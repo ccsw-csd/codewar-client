@@ -7,6 +7,7 @@ import { LoginComponent } from './login/views/login/login.component';
 import { DashboardComponent } from './user-role/views/dashboard/dashboard.component';
 import { ChallengeListComponent } from './admin-role/views/challenge-list/challenge-list.component';
 import { ChallengeEditComponent } from './admin-role/views/challenge-edit/challenge-edit.component';
+import { ChallengeResolverService } from './admin-role/services/challenge.resolver.service';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -19,7 +20,7 @@ const routes: Routes = [
     children: [
       { path: 'dashboard', component: DashboardComponent, data:{role:['USER']}},
       { path: 'admin/challenge-list', component: ChallengeListComponent},
-      { path: 'admin/challenge-edit/:id', component: ChallengeEditComponent},
+      { path: 'admin/challenge-edit/:id', component: ChallengeEditComponent, resolve: {challenge: ChallengeResolverService}},
       { path: 'admin/challenge-edit', component: ChallengeEditComponent},
       { path: '**', redirectTo: 'dashboard', pathMatch: 'full' },
     ]

@@ -12,7 +12,6 @@ import { Dropdown } from 'primeng/dropdown';
 export class GeneralComponent implements OnInit{
 
   listTags: Tag[] = [];
-  selectedTags: Tag[] = [];
 
   @ViewChild('dropdownTags') dropdownTags: Dropdown;
   @Input() challenge: ChallengeEdit;
@@ -23,7 +22,6 @@ export class GeneralComponent implements OnInit{
   
   ngOnInit(): void {
     this.getAllTags();
-    this.selectedTags = this.challenge.tags;
   }
 
   getAllTags(){
@@ -38,17 +36,17 @@ export class GeneralComponent implements OnInit{
 
   onChangeTag(event: any) {
     const selectedTag = event.value;
-    if (selectedTag && !this.selectedTags.includes(selectedTag)) {
-      this.selectedTags.push(selectedTag);
+    if (selectedTag && !this.challenge.tags.includes(selectedTag)) {
+      this.challenge.tags.push(selectedTag);
     }
 
     this.dropdownTags.updateSelectedOption(null);
   }
 
   removeTag(tag: Tag) {
-    const index = this.selectedTags.indexOf(tag);
+    const index = this.challenge.tags.indexOf(tag);
     if (index !== -1) {
-      this.selectedTags.splice(index, 1);
+      this.challenge.tags.splice(index, 1);
     }
   }
 }

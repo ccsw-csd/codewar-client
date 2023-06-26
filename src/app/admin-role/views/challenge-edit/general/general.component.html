@@ -1,6 +1,6 @@
 <div class="flex flex-row mt-2">
     
-    <div class="flex flex-column gap-2 pr-5" style="flex:1;">
+    <div class="flex flex-column gap-3 pr-5" style="flex:1;">
         <div class="flex flex-row gap-3">
             <span class="p-float-label flex flex-1">
                 <input class="w-full" pInputText [(ngModel)]="challenge.name" field="field" required>
@@ -8,30 +8,27 @@
             </span>
         </div>
 
-        <div>
-            <p-panel class="no-header">
-                <p-dropdown class="mt-2" #dropdownTags placeholder="Selecciona un tag" [options]="listTags" optionLabel="name" [style]="{width:'100%', margin: '10 0 0 0'}" (onChange)="onChangeTag($event);"></p-dropdown>
-
-                <p-table [value]="selectedTags" [style]="{width:'100%', height: '200px'}" [autoLayout]="true">
-                    <ng-template pTemplate="header">
-
-                    </ng-template>
-                    <ng-template pTemplate="body" let-tag>
-                        <tr>
-                            <td>{{ tag.name }}</td>
-                            <td>
-                                <button pButton icon="pi pi-trash" (click)="removeTag(tag)"></button>
-                            </td>
-                        </tr>
-                    </ng-template>
-                </p-table>
-            </p-panel>
+        <div class="mt-2">
+            <p-checkbox labelStyleClass="cursor-pointer" [(ngModel)]="challenge.tries" [binary]="true" inputId="binary" label="Se permite más de un intento"></p-checkbox>
         </div>
 
-        <span class="field-checkbox">
-            <p-checkbox labelStyleClass="cursor-pointer" [(ngModel)]="challenge.tries" [binary]="true" inputId="binary"
-                label="Se permite más de un intento"></p-checkbox>
-        </span>
+        <p-fieldset legend="Tags del reto">
+            <p-dropdown #dropdownTags placeholder="Selecciona un tag" [options]="listTags" optionLabel="name" [style]="{width:'100%'}" (onChange)="onChangeTag($event);"></p-dropdown>
+
+            <p-divider></p-divider>
+
+            <p-table [value]="challenge.tags" [scrollable]="true" scrollHeight="calc(100vh - 535px)" [style]="{width:'100%', height: 'calc(100vh - 535px)'}" [autoLayout]="true">
+                <ng-template pTemplate="body" let-tag>
+                    <tr class="flex flex-row">
+                        <td class="flex flex-1 align-items-center">{{ tag.name }}</td>
+                        <td class="flex-none w-4rem">
+                            <p-button icon="pi pi-trash" (click)="removeTag(tag)" styleClass="p-button-text p-button-secondary"></p-button>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </p-fieldset>
+
     </div>
 
     <div style="flex:2;">

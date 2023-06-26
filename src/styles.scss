@@ -26,3 +26,7 @@ body { margin: 0; font-family: "Source Sans Pro", sans-serif; }
 .no-header .p-panel-header {
     display: none !important;
 }
+
+.p-fieldset {
+    border: 1px solid rgba(0, 0, 0, 0.38);
+}

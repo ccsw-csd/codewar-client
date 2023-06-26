@@ -17,6 +17,8 @@ import { ChallengeListComponent } from './views/challenge-list/challenge-list.co
 import { ChallengeEditComponent } from './views/challenge-edit/challenge-edit.component';
 import { GeneralComponent } from './views/challenge-edit/general/general.component';
 import { CodeComponent } from './views/challenge-edit/code/code.component';
+import { DividerModule } from 'primeng/divider';
+import { ChallengeResolverService } from './services/challenge.resolver.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,11 @@ import { CodeComponent } from './views/challenge-edit/code/code.component';
     TableModule,
     EditorModule,
     PanelModule,
-    FieldsetModule
+    FieldsetModule,
+    DividerModule
+  ],
+  providers: [
+    ChallengeResolverService,
   ]
 })
 export class AdminRoleModule { }
